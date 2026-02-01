@@ -1,0 +1,111 @@
+/* Custom styles that aren't covered by Tailwind */
+
+/* Prose styles for markdown content */
+.prose-lg {
+    font-size: 1.125rem;
+    line-height: 1.75;
+}
+
+.prose-lg p {
+    margin-bottom: 1.5rem;
+}
+
+.prose-lg h2 {
+    font-family: 'Zilla Slab', serif;
+    font-size: 1.875rem;
+    color: #40474F;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.prose-lg h3 {
+    font-family: 'Zilla Slab', serif;
+    font-size: 1.5rem;
+    color: #6AA6AF;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.prose-lg ul {
+    list-style-type: disc;
+    padding-left: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.prose-lg li {
+    margin-bottom: 0.5rem;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Print styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    body {
+        color: #000 !important;
+        background: #fff !important;
+    }
+    
+    a {
+        color: #000 !important;
+        text-decoration: none !important;
+    }
+}
+
+/* Animation delay utilities (if needed beyond Tailwind) */
+.animation-delay-2000 {
+    animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+    animation-delay: 4s;
+}
+
+/* Image optimization */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* WebP fallback styles */
+.webp-image {
+    background-size: cover;
+    background-position: center;
+}
+
+/* Enhanced image grid interactions */
+.service-teaser {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-teaser:hover img {
+  transform: scale(1.05);
+}
+
+.service-teaser .overlay {
+  transition: opacity 0.5s ease;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .service-teaser .overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
+  }
+  
+  .service-teaser:active img {
+    transform: scale(1.02);
+    transition: transform 0.2s ease;
+  }
+}

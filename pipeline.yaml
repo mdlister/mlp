@@ -1,0 +1,95 @@
+trigger:
+  tags:
+    include:
+      - publish
+
+pr: none
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+- group: vg-github-pages
+- name: github-pages-repo
+  value: mdlister/mlp
+
+steps:
+- checkout: self
+  clean: true
+
+- task: UseRubyVersion@0
+  inputs:
+    versionSpec: '3.2.x'
+  displayName: 'Use Ruby 3.2 or higher'
+
+- script: |
+    gem install bundler
+    bundle install
+  displayName: 'Install Ruby gems'
+
+- script: |
+    gem install bundler-audit
+    bundler-audit check --update
+  displayName: 'Security scan Ruby dependencies'
+
+- script: |
+    bundle exec jekyll build
+  displayName: 'Build Jekyll site'
+
+- script: |
+    gem install html-proofer
+    
+    # Get all root .html files
+    PAGES=$(find ./_site -maxdepth 1 -name "*.html" ! -name "index.html" -exec basename {} .html \;)
+    
+    # Build exact match swap rules
+    SWAP_MAP=""
+    for PAGE in $PAGES; do
+      if [[ -n "$SWAP_MAP" ]]; then
+        SWAP_MAP+=","
+      fi
+      # Exact match only: /blog$ (not /blog/anything-else)
+      SWAP_MAP+="^/${PAGE}\$:/${PAGE}.html"
+    done
+    
+    echo "Pages found: $PAGES"
+    echo "Swap map: $SWAP_MAP"
+    
+    # Run with ignores for known issues
+    htmlproofer ./_site \
+      --checks Links \
+      --swap-urls "$SWAP_MAP" \
+      --allow-hash-href \
+      --ignore-urls "#contact" \
+      --disable-external \
+      --log-level debug \
+  displayName: 'Validate HTML and links'
+
+- script: |
+    docker run --rm \
+      -v $(Build.SourcesDirectory):/repo \
+      trufflesecurity/trufflehog filesystem /repo
+  displayName: 'Scan for secrets'
+
+- script: |
+    echo "Cloning GitHub Pages repo"
+    git clone https://$(github-username):$(github-pages-token)@github.com/$(github-pages-repo).git gh-pages
+
+    echo "Replacing site contents"
+    rm -rf gh-pages/*
+    cp -r _site/* gh-pages/
+
+    cd gh-pages
+
+    if [ -z "$(git status --porcelain)" ]; then
+      echo "No changes to publish"
+      exit 0
+    fi
+
+    git config user.name "Azure DevOps"
+    git config user.email "azure-devops@users.noreply.github.com"
+
+    git add .
+    git commit -m "Publish site from Azure DevOps ($(Build.SourceVersion))"
+    git push
+  displayName: 'Publish to GitHub Pages'

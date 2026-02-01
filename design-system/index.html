@@ -1,0 +1,1932 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Design System | Mike Lister Photography | Mike Lister Photography</title>
+    <meta name="description" content="Complete design system and development guide for Mike Lister Photography website.">
+    <meta name="keywords" content="Plymouth photographer, wedding photography Devon, commercial photography Cornwall, drone photography UK, professional photographer Plymouth, wedding photographer Cornwall">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Design System | Mike Lister Photography">
+    <meta property="og:description" content="Complete design system and development guide for Mike Lister Photography website.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_GB">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://mikelisterphotography.co.uk/design-system/">
+    
+    <!-- Preconnect for Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@300;400;500;600;700&family=Libre+Franklin:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Main brand colors
+                        'memories': '#40474F',
+                        'off-the-cuff': '#CCE2DF',
+                        'cool-as-a-cucumber': '#6AA6AF',
+                        'pleased-as-punch': '#EED5C4',
+                        'feel-at-home': '#F2E8E2',
+                        'off-white': '#F8F8F8',
+                        
+                        // Service specific colors
+                        'drone-1': '#9EAE6A',
+                        'drone-2': '#d5ebd8',
+                        'commercial-1': '#757679',
+                        'commercial-2': '#D1D3D4',
+                        
+                        // Wedding specific
+                        'wedding-1': '#EED5C4',
+                        'wedding-2': '#F2E8E2',
+                    },
+                    fontFamily: {
+                        'zilla-slab': ['Zilla Slab', 'serif'],
+                        'libre-franklin': ['Libre Franklin', 'sans-serif'],
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/css/custom.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/images/brand/favicon.ico">
+
+<!-- Add this to head.html or before closing body in default.html -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Mike Lister Photography",
+  "image": "https://mikelisterphotography.co.uk/assets/images/brand/Mike-Lister-Photography-Logo.png",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "9 Winsbury Court, Crownhill",
+    "addressLocality": "Plymouth",
+    "addressRegion": "Devon",
+    "postalCode": "PL6 5JU",
+    "addressCountry": "GB"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "50.4045305",
+    "longitude": "-4.1260662"
+  },
+  "url": "https://mikelisterphotography.co.uk",
+  "telephone": "07815141779",
+  "priceRange": "££",
+  "openingHours": "Mo-Fr 09:00-17:30",
+  "serviceType": ["Wedding Photography", "Commercial Photography", "Drone Photography"],
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": "50.4045305",
+      "longitude": "-4.1260662"
+    },
+    "geoRadius": "80000"
+  }
+}
+</script>
+
+</head>
+
+<body class="font-libre-franklin bg-off-white text-memories min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+    <nav class="container mx-auto px-4 py-4">
+        <div class="flex justify-between items-center">
+            <!-- Logo with Image -->
+            <div class="flex items-center">
+                <a href="/" class="flex items-center space-x-2 group">
+                        <img src="/assets/images/brand/Mike-Lister-Photography-Logo.png" 
+                             alt="Mike Lister Photography Logo"
+                             class="h-10 w-auto object-contain"
+                             loading="eager">
+                </a>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-8">
+                
+                    
+                    <a href="/" 
+                       class="font-zilla-slab text-memories hover:text-cool-as-a-cucumber transition-colors duration-300 relative group ">
+                        Home
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cool-as-a-cucumber group-hover:w-full transition-all duration-300 "></span>
+                    </a>
+                    
+                
+                    
+                    <a href="/wedding-photography" 
+                       class="font-zilla-slab text-memories hover:text-cool-as-a-cucumber transition-colors duration-300 relative group ">
+                        Weddings
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cool-as-a-cucumber group-hover:w-full transition-all duration-300 "></span>
+                    </a>
+                    
+                
+                    
+                    <a href="/commercial-photography" 
+                       class="font-zilla-slab text-memories hover:text-cool-as-a-cucumber transition-colors duration-300 relative group ">
+                        Commercial
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cool-as-a-cucumber group-hover:w-full transition-all duration-300 "></span>
+                    </a>
+                    
+                
+                    
+                    <a href="/drone-photography" 
+                       class="font-zilla-slab text-memories hover:text-cool-as-a-cucumber transition-colors duration-300 relative group ">
+                        Drone
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cool-as-a-cucumber group-hover:w-full transition-all duration-300 "></span>
+                    </a>
+                    
+                
+                    
+                    <a href="/about" 
+                       class="font-zilla-slab text-memories hover:text-cool-as-a-cucumber transition-colors duration-300 relative group ">
+                        About
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cool-as-a-cucumber group-hover:w-full transition-all duration-300 "></span>
+                    </a>
+                    
+                
+                <!-- CTA Button -->
+                <a href="#contact" 
+                   class="bg-cool-as-a-cucumber text-white px-6 py-2 rounded-full font-zilla-slab hover:bg-memories transition-colors duration-300">
+                    Get in Touch
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-memories">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+            <div class="flex flex-col space-y-4">
+                
+                    
+                    <a href="/" 
+                       class="font-zilla-slab text-memories hover:text-cool-as-a-cucumber py-2 border-b border-feel-at-home ">
+                        Home
+                    </a>
+                    
+                
+                    
+                    <a href="/wedding-photography" 
+                       class="font-zilla-slab text-memories hover:text-cool-as-a-cucumber py-2 border-b border-feel-at-home ">
+                        Weddings
+                    </a>
+                    
+                
+                    
+                    <a href="/commercial-photography" 
+                       class="font-zilla-slab text-memories hover:text-cool-as-a-cucumber py-2 border-b border-feel-at-home ">
+                        Commercial
+                    </a>
+                    
+                
+                    
+                    <a href="/drone-photography" 
+                       class="font-zilla-slab text-memories hover:text-cool-as-a-cucumber py-2 border-b border-feel-at-home ">
+                        Drone
+                    </a>
+                    
+                
+                    
+                    <a href="/about" 
+                       class="font-zilla-slab text-memories hover:text-cool-as-a-cucumber py-2 border-b border-feel-at-home ">
+                        About
+                    </a>
+                    
+                
+                <!-- CTA Button for Mobile -->
+                <a href="#contact" 
+                   class="bg-cool-as-a-cucumber text-white px-6 py-3 rounded-full font-zilla-slab text-center mt-2">
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
+    
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <article class="py-12 px-4">
+    <div class="container mx-auto max-w-4xl">
+        <header class="mb-12 text-center">
+            <h1 class="font-zilla-slab text-4xl md:text-5xl text-memories mb-6">Design System | Mike Lister Photography</h1>
+            
+            <p class="text-xl text-cool-as-a-cucumber">Complete design system and development guide for Mike Lister Photography website.</p>
+            
+        </header>
+        
+        <div class="prose prose-lg max-w-none">
+            <style>
+/* Design System Specific Styles */
+.ds-color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.ds-color-sample {
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.ds-color-sample:hover {
+  transform: translateY(-5px);
+}
+
+.ds-code-block {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.9rem;
+}
+
+.ds-component-demo {
+  border: 2px solid #F2E8E2;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  margin: 2rem 0;
+  background: white;
+}
+
+.ds-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+.ds-table th {
+  background: #6AA6AF;
+  color: white;
+  padding: 0.75rem;
+  text-align: left;
+  font-family: 'Zilla Slab', serif;
+}
+
+.ds-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #F2E8E2;
+}
+
+.ds-section {
+  scroll-margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 2px solid #CCE2DF;
+  margin-top: 3rem;
+}
+
+.ds-section:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+.ds-toc {
+  background: #F2E8E2;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+.ds-toc ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.ds-toc li {
+  margin: 0.5rem 0;
+}
+
+.ds-toc a {
+  color: #40474F;
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  transition: background 0.3s ease;
+}
+
+.ds-toc a:hover {
+  background: #CCE2DF;
+  color: #40474F;
+}
+
+.ds-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.badge-brand {
+  background: #6AA6AF;
+  color: white;
+}
+
+.badge-service {
+  background: #9EAE6A;
+  color: white;
+}
+
+.badge-code {
+  background: #40474F;
+  color: white;
+}
+
+.ds-animation-demo {
+  width: 100px;
+  height: 100px;
+  background: #6AA6AF;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+}
+
+.animate-hover-scale:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.animate-hover-lift:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+}
+
+.animate-pulse-demo {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.ds-button-demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.ds-button-demo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+</style>
+
+<div class="container mx-auto max-w-6xl px-4 py-8">
+  <!-- Header -->
+  <header class="text-center mb-12">
+    <h1 class="font-zilla-slab text-5xl text-memories mb-4">
+      Design System
+    </h1>
+    <p class="text-xl text-gray-700">
+      Complete guide for developing and maintaining the Mike Lister Photography website
+    </p>
+    <div class="mt-6">
+      <span class="ds-badge badge-brand">Brand Guidelines</span>
+      <span class="ds-badge badge-code">Code Examples</span>
+      <span class="ds-badge badge-service">Development Guide</span>
+    </div>
+  </header>
+
+  <!-- Table of Contents -->
+  <section class="ds-toc">
+    <h2 class="font-zilla-slab text-2xl text-memories mb-4">Table of Contents</h2>
+    <ul>
+      <li><a href="#brand-identity">1. Brand Identity</a></li>
+      <li><a href="#tone-voice">2. Tone &amp; Voice</a></li>
+      <li><a href="#color-palette">3. Color Palette</a></li>
+      <li><a href="#typography">4. Typography</a></li>
+      <li><a href="#components">5. Component Examples</a></li>
+      <li><a href="#animations">6. Animation &amp; Effects</a></li>
+      <li><a href="#images">7. Image Management</a></li>
+      <li><a href="#seo-accessibility">8. SEO &amp; Accessibility</a></li>
+      <li><a href="#analytics">9. Google Analytics</a></li>
+      <li><a href="#features">10. Advanced Features</a></li>
+      <li><a href="#structure">11. File Structure</a></li>
+      <li><a href="#guidelines">12. Development Guidelines</a></li>
+    </ul>
+  </section>
+
+  <!-- Brand Identity -->
+  <section id="brand-identity" class="ds-section">
+    <h2 class="font-zilla-slab text-3xl text-memories mb-6">1. Brand Identity</h2>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+      <div>
+        <h3 class="font-zilla-slab text-xl text-cool-as-a-cucumber mb-4">Business Positioning</h3>
+        <p class="mb-4">Mike Lister Photography operates as three integrated services under one cohesive brand:</p>
+        <ul class="list-disc pl-5 space-y-2 mb-6">
+          <li><strong>Weddings</strong>: Warm, personal, emotional storytelling</li>
+          <li><strong>Commercial</strong>: Professional, business-focused, brand-enhancing</li>
+          <li><strong>Drone</strong>: Technical, precision-focused, perspective-shifting</li>
+        </ul>
+      </div>
+      
+      <div class="bg-feel-at-home p-6 rounded-xl">
+        <h3 class="font-zilla-slab text-xl text-pleased-as-punch mb-4">Core Brand Attributes</h3>
+        <ul class="space-y-3">
+          <li class="flex items-start">
+            <svg class="w-5 h-5 text-pleased-as-punch mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span><strong>Warm &amp; Inviting</strong>: Feels like working with a trusted friend</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="w-5 h-5 text-pleased-as-punch mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span><strong>Deeply Personal</strong>: Focuses on emotional connection</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="w-5 h-5 text-pleased-as-punch mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span><strong>Professional Excellence</strong>: Technical expertise without coldness</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tone & Voice -->
+  <section id="tone-voice" class="ds-section">
+    <h2 class="font-zilla-slab text-3xl text-memories mb-6">2. Tone &amp; Voice</h2>
+    
+    <div class="ds-component-demo">
+      <h3 class="font-zilla-slab text-xl text-cool-as-a-cucumber mb-4">Communication Style</h3>
+      <p class="mb-6">The tone should feel like a nurturing, caring companion on life's journey:</p>
+      
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-off-the-cuff/30 p-6 rounded-lg">
+          <h4 class="font-zilla-slab text-lg text-memories mb-3">✅ DO:</h4>
+          <p class="italic text-gray-700">"Let's capture the moments that tell your unique story"</p>
+          <p class="italic text-gray-700 mt-2">"I'll be there to preserve every precious detail"</p>
+          Use English UK Spelling and Grammar
+        </div>
+        
+        <div class="bg-rose-50 p-6 rounded-lg">
+          <h4 class="font-zilla-slab text-lg text-rose-700 mb-3">❌ DON'T:</h4>
+          <p class="italic text-gray-700">"We provide photography services"</p>
+          <p class="italic text-gray-700 mt-2">"Contact us for a quote"</p>
+          Avoid using "—" and too many emojii icons as it's a clue that the content is AI generated.
+          <p>Avoid overly perfect grammar - Real humans make occasional small errors
+
+Don't use repetitive sentence structures - Vary your sentence length and structure
+
+Avoid excessive adjectives - "Absolutely stunning, breathtakingly beautiful, incredibly amazing"
+
+Don't use cliché marketing phrases - "Unlock your potential", "Transform your business", "Revolutionary solution"
+
+Avoid generic filler phrases - "In today's fast-paced world", "In the digital age"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Color Palette -->
+  <section id="color-palette" class="ds-section">
+    <h2 class="font-zilla-slab text-3xl text-memories mb-6">3. Color Palette</h2>
+    
+    <h3 class="font-zilla-slab text-xl text-cool-as-a-cucumber mb-4">Primary Brand Colors</h3>
+    <div class="ds-color-grid">
+      <div class="ds-color-sample" style="background: #40474F; color: white;">
+        <strong>Memories</strong><br />
+        #40474F<br />
+        Headers, main text
+      </div>
+      <div class="ds-color-sample" style="background: #CCE2DF; color: #40474F;">
+        <strong>Off the Cuff</strong><br />
+        #CCE2DF<br />
+        Backgrounds, accents
+      </div>
+      <div class="ds-color-sample" style="background: #6AA6AF; color: white;">
+        <strong>Cool as a Cucumber</strong><br />
+        #6AA6AF<br />
+        Highlights, buttons
+      </div>
+      <div class="ds-color-sample" style="background: #EED5C4; color: #40474F;">
+        <strong>Pleased as Punch</strong><br />
+        #EED5C4<br />
+        Accents, decorative
+      </div>
+      <div class="ds-color-sample" style="background: #F2E8E2; color: #40474F;">
+        <strong>Feel at Home</strong><br />
+        #F2E8E2<br />
+        Cards, backgrounds
+      </div>
+    </div>
+    
+    <h3 class="font-zilla-slab text-xl text-cool-as-a-cucumber mb-4 mt-8">Service-Specific Colors</h3>
+    <div class="ds-color-grid">
+      <div class="ds-color-sample" style="background: #9EAE6A; color: white;">
+        <strong>Drone 1</strong><br />
+        #9EAE6A<br />
+        Drone page headers
+      </div>
+      <div class="ds-color-sample" style="background: #d5ebd8; color: #40474F;">
+        <strong>Drone 2</strong><br />
+        #d5ebd8<br />
+        Drone backgrounds
+      </div>
+      <div class="ds-color-sample" style="background: #757679; color: white;">
+        <strong>Commercial 1</strong><br />
+        #757679<br />
+        Commercial headers
+      </div>
+      <div class="ds-color-sample" style="background: #D1D3D4; color: #40474F;">
+        <strong>Commercial 2</strong><br />
+        #D1D3D4<br />
+        Commercial backgrounds
+      </div>
+    </div>
+    
+    <h3 class="font-zilla-slab text-xl text-cool-as-a-cucumber mb-4 mt-8">Button Examples</h3>
+    <div class="ds-button-demo-grid">
+      <div class="ds-button-demo">
+        <button class="bg-cool-as-a-cucumber text-white px-6 py-3 rounded-full font-zilla-slab hover:bg-memories transition-colors duration-300">
+          Primary CTA
+        </button>
+        <code class="text-xs text-gray-600">.bg-cool-as-a-cucumber</code>
+      </div>
+      
+      <div class="ds-button-demo">
+        <button class="bg-white text-memories border-2 border-cool-as-a-cucumber px-6 py-3 rounded-full font-zilla-slab hover:bg-cool-as-a-cucumber hover:text-white transition-colors duration-300">
+          Secondary Button
+        </button>
+        <code class="text-xs text-gray-600">.border-cool-as-a-cucumber</code>
+      </div>
+      
+      <div class="ds-button-demo">
+        <button class="bg-pleased-as-punch text-memories px-6 py-3 rounded-full font-zilla-slab hover:bg-memories hover:text-white transition-colors duration-300">
+          Wedding Button
+        </button>
+        <code class="text-xs text-gray-600">.bg-pleased-as-punch</code>
+      </div>
+      
+      <div class="ds-button-demo">
+        <button class="bg-commercial-1 text-white px-6 py-3 rounded-full font-zilla-slab hover:bg-memories transition-colors duration-300">
+          Commercial Button
+        </button>
+        <code class="text-xs text-gray-600">.bg-commercial-1</code>
+      </div>
+    </div>
+  </section>
+
+  <!-- Typography -->
+  <section id="typography" class="ds-section">
+    <h2 class="font-zilla-slab text-3xl text-memories mb-6">4. Typography</h2>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+      <div>
+        <h3 class="font-zilla-slab text-xl text-cool-as-a-cucumber mb-4">Font Families</h3>
+        <div class="ds-code-block">
+&lt;!-- In head section --&gt;<br />
+&lt;link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@300;400;500;600;700&amp;family=Libre+Franklin:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"&gt;
+        </div>
+      </div>
+      
+      <div>
+        <h3 class="font-zilla-slab text-xl text-cool-as-a-cucumber mb-4">Font Usage</h3>
+        <div class="space-y-4">
+          <h1 class="font-zilla-slab text-4xl text-memories">Zilla Slab for Headings</h1>
+          <p class="font-libre-franklin text-lg text-gray-700">Libre Franklin for body text and readability</p>
+          <p class="font-zilla-slab text-xl text-pleased-as-punch italic">"Zilla Slab italic for quotes"</p>
+        </div>
+      </div>
+    </div>
+    
+    <h3 class="font-zilla-slab text-xl text-cool-as-a-cucumber mb-4 mt-8">Type Scale Examples</h3>
+    <div class="space-y-4">
+      <h1 class="font-zilla-slab text-4xl md:text-5xl text-memories">Heading 1 (36px-60px)</h1>
+      <h2 class="font-zilla-slab text-3xl md:text-4xl text-cool-as-a-cucumber">Heading 2 (30px-36px)</h2>
+      <h3 class="font-zilla-slab text-2xl md:text-3xl text-memories">Heading 3 (24px-30px)</h3>
+      <h4 class="font-zilla-slab text-xl md:text-2xl text-memories">Heading 4 (20px-24px)</h4>
+      <p class="font-libre-franklin text-lg text-gray-700">Body Large (18px) - Perfect for introductory paragraphs</p>
+      <p class="font-libre-franklin text-gray-700">Body Regular (16px) - Main content text</p>
+      <p class="font-libre-franklin text-sm text-gray-600">Body Small (14px) - Captions and footnotes</p>
+    </div>
+  </section>
+
+  <!-- Components -->
+  <section id="components" class="ds-section">
+    <h2 class="font-zilla-slab text-3xl text-memories mb-6">5. Component Examples</h2>
+    
+    <div class="ds-component-demo">
+      <h3 class="font-zilla-slab text-xl text-cool-as-a-cucumber mb-4">Service Card</h3>
+      <div class="group relative overflow-hidden rounded-2xl shadow-lg transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+        <div class="absolute inset-0 bg-wedding-1 opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div class="relative p-8 h-full flex flex-col">
+          <div class="text-4xl mb-6 transform group-hover:scale-110 transition-transform duration-500">💒</div>
+          <h3 class="font-zilla-slab text-2xl text-memories mb-4">Wedding Photography</h3>
+          <p class="text-memories opacity-90 mb-6 flex-grow">
+            From your first look to the last dance, I capture every precious moment with care and attention.
+          </p>
+          <div class="mb-8">
+            <p class="font-zilla-slab text-lg text-pleased-as-punch italic">
+              "Every Moment, Every Detail, Forever Yours"
+            </p>
+          </div>
+          <a href="#" class="inline-flex items-center justify-center bg-white text-memories px-6 py-3 rounded-full font-zilla-slab font-semibold hover:bg-cool-as-a-cucumber hover:text-white transition-all duration-300 transform group-hover:scale-105 mt-auto">
+            Learn More
+            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+      
+      <div class="ds-code-block mt-6">
+&lt;div class="group relative overflow-hidden rounded-2xl shadow-lg transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"&gt;<br />
+  &lt;div class="absolute inset-0 bg-wedding-1 opacity-90 group-hover:opacity-100 transition-opacity duration-500"&gt;&lt;/div&gt;<br />
+  &lt;div class="relative p-8 h-full flex flex-col"&gt;<br />
+    &lt;div class="text-4xl mb-6 transform group-hover:scale-110 transition-transform duration-500"&gt;💒&lt;/div&gt;<br />
+    &lt;h3 class="font-zilla-slab text-2xl text-memories mb-4"&gt;Wedding Photography&lt;/h3&gt;<br />
+    &lt;p class="text-memories opacity-90 mb-6 flex-grow"&gt;...&lt;/p&gt;<br />
+    &lt;a href="#" class="inline-flex items-center justify-center bg-white text-memories px-6 py-3 rounded-full font-zilla-slab hover:bg-cool-as-a-cucumber hover:text-white transition-all duration-300"&gt;<br />
+      Learn More<br />
+    &lt;/a&gt;<br />
+  &lt;/div&gt;<br />
+&lt;/div&gt;
+      </div>
+    </div>
+  </section>
+
+  <!-- Animations -->
+  <section id="animations" class="ds-section">
+    <h2 class="font-zilla-slab text-3xl text-memories mb-6">6. Animation &amp; Effects</h2>
+    
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="text-center">
+        <div class="ds-animation-demo animate-hover-scale mx-auto"></div>
+        <p class="mt-2 font-semibold">Scale on Hover</p>
+        <code class="text-xs text-gray-600">hover:scale-105</code>
+      </div>
+      
+      <div class="text-center">
+        <div class="ds-animation-demo animate-hover-lift mx-auto"></div>
+        <p class="mt-2 font-semibold">Lift Effect</p>
+        <code class="text-xs text-gray-600">hover:-translate-y-1</code>
+      </div>
+      
+      <div class="text-center">
+        <div class="ds-animation-demo animate-pulse-demo mx-auto"></div>
+        <p class="mt-2 font-semibold">Pulse Animation</p>
+        <code class="text-xs text-gray-600">animate-pulse</code>
+      </div>
+    </div>
+    
+    <div class="ds-code-block mt-6">
+/* Growing underline effect */<br />
+.hover-underline {<br />
+  position: relative;<br />
+}<br />
+.hover-underline::after {<br />
+  content: '';<br />
+  position: absolute;<br />
+  bottom: -2px;<br />
+  left: 0;<br />
+  width: 0;<br />
+  height: 2px;<br />
+  background: #6AA6AF;<br />
+  transition: width 0.3s ease;<br />
+}<br />
+.hover-underline:hover::after {<br />
+  width: 100%;<br />
+}<br /><br />
+/* Blob animation */<br />
+@keyframes blob {<br />
+  0%, 100% { transform: translate(0, 0) scale(1); }<br />
+  33% { transform: translate(30px, -50px) scale(1.1); }<br />
+  66% { transform: translate(-20px, 20px) scale(0.9); }<br />
+}<br />
+.animate-blob {<br />
+  animation: blob 7s infinite;<br />
+}
+    </div>
+  </section>
+
+  <!-- Images -->
+  <section id="images" class="ds-section">
+    <h2 class="font-zilla-slab text-3xl text-memories mb-6">7. Image Management</h2>
+    
+    <h3 class="font-zilla-slab text-xl text-cool-as-a-cucumber mb-4">WebP Implementation</h3>
+    <div class="ds-code-block">
+&lt;picture&gt;<br />
+  &lt;source srcset="/assets/images/webp/weddings/example-image.webp" type="image/webp"&gt;<br />
+  &lt;source srcset="/assets/images/wedding/example-image.jpg" type="image/jpeg"&gt;<br />
+  &lt;img src="/assets/images/wedding/example-image.jpg" <br />
+       alt="Bride and groom at Plymouth waterfront wedding"<br />
+       class="rounded-lg shadow-lg"<br />
+       loading="lazy"<br />
+       width="800"<br />
+       height="600"&gt;<br />
+&lt;/picture&gt;
+    </div>
+    
+    <h3 class="font-zilla-slab text-xl text-cool-as-a-cucumber mb-4 mt-6">Image Naming Convention</h3>
+    <table class="ds-table">
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Format</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Wedding</td>
+          <td>wedding-{location}-{venue}-{sequence}.webp</td>
+          <td><code>wedding-cornwall-trebah-garden-01.webp</code></td>
+        </tr>
+        <tr>
+          <td>Commercial</td>
+          <td>commercial-{business}-{type}-{sequence}.webp</td>
+          <td><code>commercial-plymouth-restaurant-interior-01.webp</code></td>
+        </tr>
+        <tr>
+          <td>Drone</td>
+          <td>drone-{location}-{perspective}-{sequence}.webp</td>
+          <td><code>drone-devon-coastal-aerial-01.webp</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- SEO & Accessibility -->
+  <section id="seo-accessibility" class="ds-section">
+    <h2 class="font-zilla-slab text-3xl text-memories mb-6">8. SEO &amp; Accessibility</h2>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+      <div>
+        <h3 class="font-zilla-slab text-xl text-cool-as-a-cucumber mb-4">Structured Data</h3>
+        <div class="ds-code-block">
+&lt;script type="application/ld+json"&gt;<br />
+{<br />
+  "@context": "https://schema.org",<br />
+  "@type": "LocalBusiness",<br />
+  "name": "Mike Lister Photography",<br />
+  "address": {<br />
+    "@type": "PostalAddress",<br />
+    "streetAddress": "9 Winsbury Court, Crownhill",<br />
+    "addressLocality": "Plymouth",<br />
+    "addressRegion": "Devon",<br />
+    "postalCode": "PL6 5JU",<br />
+    "addressCountry": "GB"<br />
+  },<br />
+  "telephone": "07815141779",<br />
+  "openingHours": "Mo-Fr 09:00-17:30"<br />
+}<br />
+&lt;/script&gt;
+        </div>
+      </div>
+      
+      <div>
+        <h3 class="font-zilla-slab text-xl text-cool-as-a-cucumber mb-4">Accessibility Features</h3>
+        <ul class="space-y-3">
+          <li class="flex items-start">
+            <svg class="w-5 h-5 text-green-500 mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Skip to main content link</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="w-5 h-5 text-green-500 mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>ARIA labels on interactive elements</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="w-5 h-5 text-green-500 mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Semantic HTML structure</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="w-5 h-5 text-green-500 mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Proper contrast ratios</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Advanced Features -->
+  <section id="features" class="ds-section">
+    <h2 class="font-zilla-slab text-3xl text-memories mb-6">10. Advanced Features</h2>
+    
+    <h3 class="font-zilla-slab text-xl text-cool-as-a-cucumber mb-4">Contact Form Example</h3>
+    <div class="ds-component-demo">
+      <form class="space-y-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label class="block font-libre-franklin text-memories mb-2">Name *</label>
+            <input type="text" class="w-full px-4 py-3 rounded-lg border border-off-the-cuff focus:border-cool-as-a-cucumber focus:ring-2 focus:ring-cool-as-a-cucumber/20" placeholder="Your name" />
+          </div>
+          <div>
+            <label class="block font-libre-franklin text-memories mb-2">Email *</label>
+            <input type="email" class="w-full px-4 py-3 rounded-lg border border-off-the-cuff focus:border-cool-as-a-cucumber focus:ring-2 focus:ring-cool-as-a-cucumber/20" placeholder="your@email.com" />
+          </div>
+        </div>
+        <div>
+          <label class="block font-libre-franklin text-memories mb-2">Message *</label>
+          <textarea class="w-full px-4 py-3 rounded-lg border border-off-the-cuff focus:border-cool-as-a-cucumber focus:ring-2 focus:ring-cool-as-a-cucumber/20" rows="4" placeholder="Tell us about your project..."></textarea>
+        </div>
+        <button type="submit" class="w-full bg-cool-as-a-cucumber text-white px-6 py-4 rounded-full font-zilla-slab hover:bg-memories transition-colors duration-300">
+          Send Message
+        </button>
+      </form>
+    </div>
+    <h3 class="font-zilla-slab text-xl text-cool-as-a-cucumber mb-4 mt-8">Compact Contact Form Variations</h3>
+
+<!-- Variation 1: Card Style -->
+<div class="ds-component-demo">
+  <h4 class="font-zilla-slab text-lg text-memories mb-4">1. Card Style Compact Form</h4>
+  
+  <div class="max-w-md mx-auto">
+    <div class="bg-white rounded-2xl shadow-lg p-6 border border-feel-at-home">
+      <h5 class="font-zilla-slab text-xl text-memories mb-6 text-center">Quick Inquiry</h5>
+      
+      <form class="space-y-4">
+        <div>
+          <input type="text" placeholder="Your Name" class="w-full px-4 py-3 rounded-lg border border-off-the-cuff focus:border-cool-as-a-cucumber focus:ring-2 focus:ring-cool-as-a-cucumber/20 transition-all duration-300" />
+        </div>
+        
+        <div>
+          <input type="email" placeholder="Email Address" class="w-full px-4 py-3 rounded-lg border border-off-the-cuff focus:border-cool-as-a-cucumber focus:ring-2 focus:ring-cool-as-a-cucumber/20 transition-all duration-300" />
+        </div>
+        
+        <div>
+          <textarea placeholder="Your Message..." rows="3" class="w-full px-4 py-3 rounded-lg border border-off-the-cuff focus:border-cool-as-a-cucumber focus:ring-2 focus:ring-cool-as-a-cucumber/20 transition-all duration-300"></textarea>
+        </div>
+        
+        <button type="submit" class="w-full bg-gradient-to-r from-cool-as-a-cucumber to-memories text-white px-6 py-3 rounded-full font-zilla-slab hover:shadow-xl hover:shadow-cool-as-a-cucumber/30 transition-all duration-500 animate-pulse shadow-lg">
+          <span class="flex items-center justify-center">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+            </svg>
+            Send Quick Message
+          </span>
+        </button>
+        
+        <p class="text-center text-xs text-gray-500 mt-4">
+          We'll respond within 2 hours
+        </p>
+      </form>
+    </div>
+    
+    <div class="ds-code-block mt-6">
+&lt;div class="bg-white rounded-2xl shadow-lg p-6"&gt;<br />
+  &lt;h5 class="font-zilla-slab text-xl text-memories mb-6"&gt;Quick Inquiry&lt;/h5&gt;<br />
+  <br />
+  &lt;form class="space-y-4"&gt;<br />
+    &lt;input type="text" placeholder="Your Name" class="w-full px-4 py-3 rounded-lg border border-off-the-cuff"&gt;<br />
+    &lt;input type="email" placeholder="Email Address" class="w-full px-4 py-3 rounded-lg border border-off-the-cuff"&gt;<br />
+    &lt;textarea placeholder="Your Message..." rows="3" class="w-full px-4 py-3 rounded-lg border border-off-the-cuff"&gt;&lt;/textarea&gt;<br />
+    <br />
+    &lt;button type="submit" class="w-full bg-gradient-to-r from-cool-as-a-cucumber to-memories text-white px-6 py-3 rounded-full font-zilla-slab hover:shadow-xl hover:shadow-cool-as-a-cucumber/30 transition-all duration-500 animate-pulse shadow-lg"&gt;<br />
+      &lt;span class="flex items-center justify-center"&gt;<br />
+        &lt;svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;<br />
+          &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"&gt;&lt;/path&gt;<br />
+        &lt;/svg&gt;<br />
+        Send Quick Message<br />
+      &lt;/span&gt;<br />
+    &lt;/button&gt;<br />
+  &lt;/form&gt;<br />
+&lt;/div&gt;
+    </div>
+  </div>
+</div>
+
+<!-- Variation 2: Minimal Style -->
+<div class="ds-component-demo mt-8">
+  <h4 class="font-zilla-slab text-lg text-memories mb-4">2. Minimal Compact Form</h4>
+  
+  <div class="max-w-md mx-auto">
+    <div class="bg-gradient-to-br from-off-the-cuff/20 to-feel-at-home/50 rounded-2xl p-6">
+      <div class="text-center mb-6">
+        <div class="w-12 h-12 bg-cool-as-a-cucumber rounded-full flex items-center justify-center mx-auto mb-3">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 0 002 2z"></path>
+          </svg>
+        </div>
+        <p class="font-zilla-slab text-lg text-memories">Get in Touch</p>
+        <p class="text-sm text-gray-600">Send us a quick message</p>
+      </div>
+      
+      <form class="space-y-4">
+        <div class="relative">
+          <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-cool-as-a-cucumber" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+          </svg>
+          <input type="text" placeholder="Your Name" class="w-full pl-10 pr-4 py-3 rounded-lg border border-off-the-cuff focus:border-cool-as-a-cucumber focus:ring-2 focus:ring-cool-as-a-cucumber/20 bg-white transition-all duration-300" />
+        </div>
+        
+        <div class="relative">
+          <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-cool-as-a-cucumber" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 0 002 2z"></path>
+          </svg>
+          <input type="email" placeholder="Email Address" class="w-full pl-10 pr-4 py-3 rounded-lg border border-off-the-cuff focus:border-cool-as-a-cucumber focus:ring-2 focus:ring-cool-as-a-cucumber/20 bg-white transition-all duration-300" />
+        </div>
+        
+        <div class="relative">
+          <svg class="absolute left-3 top-3 w-5 h-5 text-cool-as-a-cucumber" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path>
+          </svg>
+          <textarea placeholder="Your message..." rows="3" class="w-full pl-10 pr-4 py-3 rounded-lg border border-off-the-cuff focus:border-cool-as-a-cucumber focus:ring-2 focus:ring-cool-as-a-cucumber/20 bg-white transition-all duration-300"></textarea>
+        </div>
+        
+        <div class="pt-2">
+          <button type="submit" class="w-full group relative overflow-hidden bg-cool-as-a-cucumber text-white px-6 py-3 rounded-full font-zilla-slab hover:bg-memories transition-all duration-500 shadow-lg hover:shadow-xl hover:shadow-cool-as-a-cucumber/40 animate-pulse">
+            <span class="relative z-10 flex items-center justify-center">
+              Send Message
+              <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </span>
+            <span class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-500"></span>
+          </button>
+          
+          <p class="text-center text-xs text-gray-500 mt-3">
+            By sending, you agree to our 
+            <a href="#" class="text-cool-as-a-cucumber hover:text-memories">privacy policy</a>
+          </p>
+        </div>
+      </form>
+    </div>
+    
+    <div class="ds-code-block mt-6">
+&lt;div class="bg-gradient-to-br from-off-the-cuff/20 to-feel-at-home/50 rounded-2xl p-6"&gt;<br />
+  &lt;div class="text-center mb-6"&gt;<br />
+    &lt;div class="w-12 h-12 bg-cool-as-a-cucumber rounded-full flex items-center justify-center mx-auto mb-3"&gt;<br />
+      &lt;svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;<br />
+        &lt;path d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 0 002 2z"&gt;&lt;/path&gt;<br />
+      &lt;/svg&gt;<br />
+    &lt;/div&gt;<br />
+    &lt;p class="font-zilla-slab text-lg text-memories"&gt;Get in Touch&lt;/p&gt;<br />
+  &lt;/div&gt;<br />
+  <br />
+  &lt;form class="space-y-4"&gt;<br />
+    &lt;div class="relative"&gt;<br />
+      &lt;svg class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-cool-as-a-cucumber"&gt;...&lt;/svg&gt;<br />
+      &lt;input type="text" placeholder="Your Name" class="w-full pl-10 pr-4 py-3 rounded-lg border border-off-the-cuff bg-white"&gt;<br />
+    &lt;/div&gt;<br />
+    <br />
+    &lt;div class="relative"&gt;<br />
+      &lt;svg class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-cool-as-a-cucumber"&gt;...&lt;/svg&gt;<br />
+      &lt;input type="email" placeholder="Email Address" class="w-full pl-10 pr-4 py-3 rounded-lg border border-off-the-cuff bg-white"&gt;<br />
+    &lt;/div&gt;<br />
+    <br />
+    &lt;div class="relative"&gt;<br />
+      &lt;svg class="absolute left-3 top-3 w-5 h-5 text-cool-as-a-cucumber"&gt;...&lt;/svg&gt;<br />
+      &lt;textarea placeholder="Your message..." rows="3" class="w-full pl-10 pr-4 py-3 rounded-lg border border-off-the-cuff bg-white"&gt;&lt;/textarea&gt;<br />
+    &lt;/div&gt;<br />
+    <br />
+    &lt;button type="submit" class="w-full group relative overflow-hidden bg-cool-as-a-cucumber text-white px-6 py-3 rounded-full font-zilla-slab hover:bg-memories shadow-lg hover:shadow-xl hover:shadow-cool-as-a-cucumber/40 animate-pulse"&gt;<br />
+      &lt;span class="relative z-10 flex items-center justify-center"&gt;<br />
+        Send Message<br />
+        &lt;svg class="w-4 h-4 ml-2 group-hover:translate-x-1"&gt;→&lt;/svg&gt;<br />
+      &lt;/span&gt;<br />
+      &lt;span class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10"&gt;&lt;/span&gt;<br />
+    &lt;/button&gt;<br />
+  &lt;/form&gt;<br />
+&lt;/div&gt;
+    </div>
+  </div>
+</div>
+
+<!-- CSS Animation for Enhanced Button Effects -->
+<div class="ds-component-demo mt-8">
+  <h4 class="font-zilla-slab text-lg text-memories mb-4">3. Interactive Button Effects Demo</h4>
+  
+  <div class="grid md:grid-cols-2 gap-8">
+    <div>
+      <h5 class="font-zilla-slab text-md text-cool-as-a-cucumber mb-3">Enhanced Pulse Button</h5>
+      <button id="demoPulseBtn" class="w-full ripple bg-cool-as-a-cucumber text-white px-6 py-4 rounded-full font-zilla-slab mb-4 animate-pulse-enhanced hover:animate-none hover:bg-memories transition-colors duration-300">
+        <span id="pulseBtnText">Click to See Ripple Effect</span>
+      </button>
+      
+      <h5 class="font-zilla-slab text-md text-cool-as-a-cucumber mb-3 mt-6">Send Button with Effects</h5>
+      <button id="demoSendBtn" class="w-full group relative overflow-hidden bg-gradient-to-r from-cool-as-a-cucumber to-memories text-white px-6 py-4 rounded-full font-zilla-slab hover:shadow-xl hover:shadow-cool-as-a-cucumber/40 transition-all duration-500 shadow-lg">
+        <span class="relative z-10 flex items-center justify-center">
+          <svg class="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+          </svg>
+          <span id="sendBtnText">Send Message</span>
+        </span>
+        <span class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-500"></span>
+      </button>
+      
+      <div class="mt-4 text-center">
+        <p class="text-sm text-gray-600" id="demoResult">Click the buttons above to see effects</p>
+      </div>
+    </div>
+    
+    <div>
+      <h5 class="font-zilla-slab text-md text-cool-as-a-cucumber mb-3">CSS Code</h5>
+      <div class="ds-code-block">
+&lt;style&gt;<br />
+/* Enhanced pulse animation */<br />
+@keyframes enhanced-pulse {<br />
+  0%, 100% {<br />
+    box-shadow: 0 10px 25px rgba(106, 166, 175, 0.3);<br />
+  }<br />
+  50% {<br />
+    box-shadow: 0 10px 35px rgba(106, 166, 175, 0.6);<br />
+  }<br />
+}<br />
+<br />
+.animate-pulse-enhanced {<br />
+  animation: enhanced-pulse 2s infinite;<br />
+}<br />
+<br />
+/* Ripple effect on click */<br />
+.ripple {<br />
+  position: relative;<br />
+  overflow: hidden;<br />
+}<br />
+<br />
+.ripple-effect {<br />
+  position: absolute;<br />
+  border-radius: 50%;<br />
+  background: rgba(255, 255, 255, 0.7);<br />
+  transform: scale(0);<br />
+  animation: ripple-animation 0.6s linear;<br />
+  pointer-events: none;<br />
+}<br />
+<br />
+@keyframes ripple-animation {<br />
+  to {<br />
+    transform: scale(4);<br />
+    opacity: 0;<br />
+  }<br />
+}<br />
+<br />
+/* Button hover effects */<br />
+.hover-lift {<br />
+  transition: transform 0.3s ease, box-shadow 0.3s ease;<br />
+}<br />
+<br />
+.hover-lift:hover {<br />
+  transform: translateY(-3px);<br />
+  box-shadow: 0 15px 30px rgba(106, 166, 175, 0.4);<br />
+}<br />
+&lt;/style&gt;<br />
+<br />
+&lt;!-- HTML for pulse button --&gt;<br />
+&lt;button class="ripple animate-pulse-enhanced hover:animate-none"&gt;<br />
+  Click Me<br />
+&lt;/button&gt;<br />
+<br />
+&lt;!-- HTML for send button --&gt;<br />
+&lt;button class="hover-lift bg-gradient-to-r from-cool-as-a-cucumber to-memories"&gt;<br />
+  &lt;span class="flex items-center"&gt;<br />
+    &lt;svg class="group-hover:rotate-12"&gt;...&lt;/svg&gt;<br />
+    Send Message<br />
+  &lt;/span&gt;<br />
+&lt;/button&gt;
+      </div>
+    </div>
+  </div>
+  
+  <h5 class="font-zilla-slab text-md text-cool-as-a-cucumber mb-3 mt-6">JavaScript for Interactive Effects</h5>
+  <div class="ds-code-block">
+&lt;script&gt;<br />
+// Ripple effect function<br />
+function createRipple(event) {<br />
+  const button = event.currentTarget;<br />
+  const circle = document.createElement('span');<br />
+  const diameter = Math.max(button.clientWidth, button.clientHeight);<br />
+  const radius = diameter / 2;<br />
+<br />
+  circle.style.width = circle.style.height = `${diameter}px`;<br />
+  circle.style.left = `${event.clientX - button.getBoundingClientRect().left - radius}px`;<br />
+  circle.style.top = `${event.clientY - button.getBoundingClientRect().top - radius}px`;<br />
+  circle.classList.add('ripple-effect');<br />
+<br />
+  const ripple = button.getElementsByClassName('ripple-effect')[0];<br />
+  if (ripple) {<br />
+    ripple.remove();<br />
+  }<br />
+<br />
+  button.appendChild(circle);<br />
+}<br />
+<br />
+// Button event listeners<br />
+document.querySelectorAll('.ripple').forEach(button =&gt; {<br />
+  button.addEventListener('click', createRipple);<br />
+});<br />
+<br />
+// Demo button interactions<br />
+document.getElementById('demoPulseBtn').addEventListener('click', function() {<br />
+  document.getElementById('pulseBtnText').textContent = 'Ripple Effect Activated!';<br />
+  document.getElementById('demoResult').textContent = 'Pulse button clicked - ripple effect visible';<br />
+  this.classList.add('bg-memories');<br />
+  this.classList.remove('animate-pulse-enhanced');<br />
+  <br />
+  setTimeout(() =&gt; {<br />
+    document.getElementById('pulseBtnText').textContent = 'Click to See Ripple Effect';<br />
+    this.classList.remove('bg-memories');<br />
+    this.classList.add('animate-pulse-enhanced');<br />
+  }, 2000);<br />
+});<br />
+<br />
+document.getElementById('demoSendBtn').addEventListener('click', function() {<br />
+  document.getElementById('sendBtnText').textContent = 'Sending...';<br />
+  document.getElementById('demoResult').textContent = 'Send button clicked - simulating submission';<br />
+  this.classList.add('from-memories', 'to-cool-as-a-cucumber');<br />
+  <br />
+  setTimeout(() =&gt; {<br />
+    document.getElementById('sendBtnText').textContent = '✓ Message Sent!';<br />
+    document.getElementById('demoResult').textContent = 'Message sent successfully!';<br />
+    <br />
+    setTimeout(() =&gt; {<br />
+      document.getElementById('sendBtnText').textContent = 'Send Message';<br />
+      this.classList.remove('from-memories', 'to-cool-as-a-cucumber');<br />
+    }, 1500);<br />
+  }, 1000);<br />
+});<br />
+&lt;/script&gt;
+      </div>
+</div>
+
+<script>
+// Add this JavaScript to make the demo buttons interactive
+document.addEventListener('DOMContentLoaded', function() {
+  // Ripple effect function
+  function createRipple(event) {
+    const button = event.currentTarget;
+    const circle = document.createElement('span');
+    const diameter = Math.max(button.clientWidth, button.clientHeight);
+    const radius = diameter / 2;
+
+    circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.left = `${event.clientX - button.getBoundingClientRect().left - radius}px`;
+    circle.style.top = `${event.clientY - button.getBoundingClientRect().top - radius}px`;
+    circle.classList.add('ripple-effect');
+
+    const ripple = button.getElementsByClassName('ripple-effect')[0];
+    if (ripple) {
+      ripple.remove();
+    }
+
+    button.appendChild(circle);
+  }
+
+  // Add ripple effect to all ripple buttons
+  document.querySelectorAll('.ripple').forEach(button => {
+    button.addEventListener('click', createRipple);
+  });
+
+  // Demo button interactions
+  const demoPulseBtn = document.getElementById('demoPulseBtn');
+  const demoSendBtn = document.getElementById('demoSendBtn');
+  const demoResult = document.getElementById('demoResult');
+  const pulseBtnText = document.getElementById('pulseBtnText');
+  const sendBtnText = document.getElementById('sendBtnText');
+
+  if (demoPulseBtn) {
+    demoPulseBtn.addEventListener('click', function() {
+      pulseBtnText.textContent = 'Ripple Effect Activated!';
+      demoResult.textContent = 'Pulse button clicked - ripple effect visible';
+      this.classList.add('bg-memories');
+      this.classList.remove('animate-pulse-enhanced');
+      
+      setTimeout(() => {
+        pulseBtnText.textContent = 'Click to See Ripple Effect';
+        this.classList.remove('bg-memories');
+        this.classList.add('animate-pulse-enhanced');
+      }, 2000);
+    });
+  }
+
+  if (demoSendBtn) {
+    demoSendBtn.addEventListener('click', function() {
+      sendBtnText.textContent = 'Sending...';
+      demoResult.textContent = 'Send button clicked - simulating submission';
+      this.classList.add('from-memories', 'to-cool-as-a-cucumber');
+      
+      setTimeout(() => {
+        sendBtnText.textContent = '✓ Message Sent!';
+        demoResult.textContent = 'Message sent successfully!';
+        
+        setTimeout(() => {
+          sendBtnText.textContent = 'Send Message';
+          this.classList.remove('from-memories', 'to-cool-as-a-cucumber');
+        }, 1500);
+      }, 1000);
+    });
+  }
+});
+</script>
+
+<style>
+/* Enhanced pulse animation for buttons */
+@keyframes enhanced-pulse {
+  0%, 100% {
+    box-shadow: 0 10px 25px rgba(106, 166, 175, 0.3);
+  }
+  50% {
+    box-shadow: 0 10px 35px rgba(106, 166, 175, 0.6);
+  }
+}
+
+.animate-pulse-enhanced {
+  animation: enhanced-pulse 2s infinite;
+}
+
+/* Ripple effect on click */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+  transform: scale(0);
+  animation: ripple-animation 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Button hover effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(106, 166, 175, 0.4);
+}
+</style>
+  </section>
+
+  <!-- Quick Reference -->
+  <section class="ds-section bg-feel-at-home p-8 rounded-2xl">
+    <h2 class="font-zilla-slab text-3xl text-memories mb-6">Quick Reference</h2>
+    
+    <div class="grid md:grid-cols-3 gap-6">
+      <div>
+        <h3 class="font-zilla-slab text-xl text-cool-as-a-cucumber mb-4">Color Variables</h3>
+        <div class="space-y-2">
+          <div class="flex items-center">
+            <div class="w-4 h-4 rounded bg-memories mr-2"></div>
+            <code class="text-sm">.text-memories</code>
+          </div>
+          <div class="flex items-center">
+            <div class="w-4 h-4 rounded bg-cool-as-a-cucumber mr-2"></div>
+            <code class="text-sm">.bg-cool-as-a-cucumber</code>
+          </div>
+          <div class="flex items-center">
+            <div class="w-4 h-4 rounded bg-off-the-cuff mr-2"></div>
+            <code class="text-sm">.text-off-the-cuff</code>
+          </div>
+        </div>
+      </div>
+      
+      <div>
+        <h3 class="font-zilla-slab text-xl text-cool-as-a-cucumber mb-4">File Structure</h3>
+        <div class="text-sm font-mono space-y-1">
+          <div>📁 _pages/</div>
+          <div class="ml-4">📄 index.md</div>
+          <div class="ml-4">📄 weddings.md</div>
+          <div class="ml-4">📄 commercial.md</div>
+          <div>📁 assets/images/</div>
+          <div class="ml-4">📁 webp/</div>
+          <div class="ml-8">📁 weddings/</div>
+          <div class="ml-8">📁 commercial/</div>
+        </div>
+      </div>
+      
+      <div>
+        <h3 class="font-zilla-slab text-xl text-cool-as-a-cucumber mb-4">Useful Links</h3>
+        <ul class="space-y-2">
+          <li><a href="https://squoosh.app/" class="text-cool-as-a-cucumber hover:text-memories" target="_blank">WebP Converter</a></li>
+          <li><a href="https://tailwindcss.com/docs" class="text-cool-as-a-cucumber hover:text-memories" target="_blank">Tailwind Docs</a></li>
+          <li><a href="https://jekyllrb.com/docs/" class="text-cool-as-a-cucumber hover:text-memories" target="_blank">Jekyll Docs</a></li>
+          <li><a href="https://developers.google.com/web/tools/lighthouse" class="text-cool-as-a-cucumber hover:text-memories" target="_blank">Lighthouse</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="analytics" class="ds-section">
+   <section id="structure" class="ds-section">
+    <section id="guidelines" class="ds-section">
+
+  <footer class="mt-12 pt-8 border-t border-cool-as-a-cucumber/30 text-center text-gray-600">
+    <p>Design System • Mike Lister Photography • Last updated: February 01, 2026</p>
+    <p class="text-sm mt-2">This is a living document. Update as the site evolves.</p>
+  </footer>
+&lt;/div&gt;
+</section></section></section></div>
+
+        </div>
+    </div>
+</article>
+
+        <!-- Contact Form Section - Mike Lister Photography -->
+<section id="contact" class="py-20 px-4 bg-off-white">
+  <div class="container mx-auto max-w-4xl">
+    <div class="text-center mb-16">
+      <div class="mb-6">
+        <span class="inline-block bg-cool-as-a-cucumber/20 text-cool-as-a-cucumber px-6 py-2 rounded-full text-sm font-zilla-slab tracking-wider">
+          LET'S CHAT
+        </span>
+      </div>
+      <h2 class="font-zilla-slab text-4xl md:text-5xl text-memories mb-6">
+        Ready to 
+        <span class="text-cool-as-a-cucumber">Start Your Story</span>?
+      </h2>
+      <p class="text-xl text-gray-700 max-w-2xl mx-auto">
+        Whether you're planning a wedding, need professional business photography, 
+        or want breathtaking aerial shots - I'm here to help bring your vision to life.
+      </p>
+    </div>
+    
+    <!-- Contact Form Card -->
+    <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-feel-at-home">
+      <!-- Form Header -->
+      <div class="bg-gradient-to-r from-cool-as-a-cucumber/10 to-off-the-cuff/30 p-8 border-b border-feel-at-home">
+        <div class="flex items-center gap-4">
+          <div class="w-14 h-14 bg-cool-as-a-cucumber rounded-full flex items-center justify-center flex-shrink-0">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 0 002 2z"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-zilla-slab text-2xl text-memories">Get in Touch</h3>
+            <p class="text-gray-600">I typically respond within 2 hours during business hours</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Form Content -->
+      <div class="p-8">
+        <form class="space-y-6">
+          <!-- Honeypot field (hidden from users) -->
+          <div class="hidden">
+            <label for="website">Leave this field empty</label>
+            <input type="text" id="website" name="website" autocomplete="off">
+          </div>
+          
+          <!-- Name & Phone Row -->
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label for="name" class="block font-zilla-slab text-memories">
+                Your Name *
+              </label>
+              <div class="relative">
+                <div class="absolute left-4 top-1/2 transform -translate-y-1/2 text-cool-as-a-cucumber">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                  </svg>
+                </div>
+                <input type="text" 
+                       id="name" 
+                       name="name" 
+                       required 
+                       placeholder="John & Sarah"
+                       class="w-full pl-12 pr-4 py-4 rounded-xl border border-off-the-cuff bg-off-white/50 focus:border-cool-as-a-cucumber focus:ring-2 focus:ring-cool-as-a-cucumber/20 transition-all duration-300 placeholder-gray-400">
+              </div>
+            </div>
+            
+            <div class="space-y-2">
+              <label for="phone" class="block font-zilla-slab text-memories">
+                Phone Number
+              </label>
+              <div class="relative">
+                <div class="absolute left-4 top-1/2 transform -translate-y-1/2 text-cool-as-a-cucumber">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                  </svg>
+                </div>
+                <input type="tel" 
+                       id="phone" 
+                       name="phone" 
+                       placeholder="07815 141 779"
+                       class="w-full pl-12 pr-4 py-4 rounded-xl border border-off-the-cuff bg-off-white/50 focus:border-cool-as-a-cucumber focus:ring-2 focus:ring-cool-as-a-cucumber/20 transition-all duration-300 placeholder-gray-400">
+              </div>
+            </div>
+          </div>
+          
+          <!-- Email Field -->
+          <div class="space-y-2">
+            <label for="email" class="block font-zilla-slab text-memories">
+              Email Address *
+            </label>
+            <div class="relative">
+              <div class="absolute left-4 top-1/2 transform -translate-y-1/2 text-cool-as-a-cucumber">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 0 002 2z"></path>
+                </svg>
+              </div>
+              <input type="email" 
+                     id="email" 
+                     name="email" 
+                     required 
+                     placeholder="hello@mikelisterphotography.co.uk"
+                     class="w-full pl-12 pr-4 py-4 rounded-xl border border-off-the-cuff bg-off-white/50 focus:border-cool-as-a-cucumber focus:ring-2 focus:ring-cool-as-a-cucumber/20 transition-all duration-300 placeholder-gray-400">
+            </div>
+          </div>
+          
+          <!-- Message Field -->
+          <div class="space-y-2">
+            <label for="message" class="block font-zilla-slab text-memories">
+              Your Message *
+            </label>
+            <div class="relative">
+              <div class="absolute left-4 top-4 text-cool-as-a-cucumber">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path>
+                </svg>
+              </div>
+              <textarea id="message" 
+                        name="message" 
+                        rows="6" 
+                        required 
+                        placeholder="Tell me about your wedding, business, or project... What's your vision? Any specific dates or locations in mind?"
+                        class="w-full pl-12 pr-4 py-4 rounded-xl border border-off-the-cuff bg-off-white/50 focus:border-cool-as-a-cucumber focus:ring-2 focus:ring-cool-as-a-cucumber/20 transition-all duration-300 placeholder-gray-400 resize-none"></textarea>
+            </div>
+            <p class="text-sm text-gray-500 mt-2">
+              The more details you share, the better I can understand how to help you.
+            </p>
+          </div>
+          
+          <!-- Service Interest (Optional) -->
+          <div class="space-y-2">
+            <p class="font-zilla-slab text-memories">What brings you here today?</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <label class="flex items-center space-x-2 cursor-pointer">
+                <input type="checkbox" name="service[]" value="wedding" class="rounded border-off-the-cuff text-cool-as-a-cucumber focus:ring-cool-as-a-cucumber/20">
+                <span class="text-sm text-gray-700">Wedding</span>
+              </label>
+              <label class="flex items-center space-x-2 cursor-pointer">
+                <input type="checkbox" name="service[]" value="commercial" class="rounded border-off-the-cuff text-cool-as-a-cucumber focus:ring-cool-as-a-cucumber/20">
+                <span class="text-sm text-gray-700">Commercial</span>
+              </label>
+              <label class="flex items-center space-x-2 cursor-pointer">
+                <input type="checkbox" name="service[]" value="drone" class="rounded border-off-the-cuff text-cool-as-a-cucumber focus:ring-cool-as-a-cucumber/20">
+                <span class="text-sm text-gray-700">Drone</span>
+              </label>
+              <label class="flex items-center space-x-2 cursor-pointer">
+                <input type="checkbox" name="service[]" value="unsure" class="rounded border-off-the-cuff text-cool-as-a-cucumber focus:ring-cool-as-a-cucumber/20">
+                <span class="text-sm text-gray-700">Not sure yet</span>
+              </label>
+            </div>
+          </div>
+          
+          <!-- Privacy Notice -->
+          <div class="bg-off-the-cuff/30 p-4 rounded-xl border border-off-the-cuff">
+            <div class="flex items-start space-x-3">
+              <svg class="w-5 h-5 text-cool-as-a-cucumber mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <div>
+                <p class="text-sm text-gray-700">
+                  <strong class="font-semibold text-memories">Your privacy matters.</strong> 
+                  I'll only use your details to respond to your enquiry. No spam, no sharing with third parties. 
+                  By submitting, you agree to our <a href="/privacy" class="text-cool-as-a-cucumber hover:text-memories underline">privacy policy</a>.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Submit Button -->
+          <div class="pt-4">
+            <button type="submit" 
+                    class="group relative overflow-hidden w-full bg-gradient-to-r from-cool-as-a-cucumber to-memories text-white px-8 py-5 rounded-full font-zilla-slab text-lg font-semibold hover:shadow-2xl hover:shadow-cool-as-a-cucumber/30 transition-all duration-500">
+              <span class="relative z-10 flex items-center justify-center">
+                <svg class="w-6 h-6 mr-3 group-hover:rotate-12 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                </svg>
+                Send Your Message
+              </span>
+              <span class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-500"></span>
+            </button>
+            <p class="text-center text-sm text-gray-500 mt-4">
+              Based in Plymouth • Serving Devon & Cornwall • UK-based photographer
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+    <!-- Alternative Contact Methods -->
+    <div class="mt-12 grid md:grid-cols-2 gap-8 text-center">
+      <div class="p-6 bg-white rounded-2xl border border-feel-at-home shadow-sm">
+        <div class="w-12 h-12 bg-cool-as-a-cucumber/20 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-6 h-6 text-cool-as-a-cucumber" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+          </svg>
+        </div>
+        <h4 class="font-zilla-slab text-lg text-memories mb-2">Call Me</h4>
+        <a href="tel:07815141779" class="text-cool-as-a-cucumber hover:text-memories text-lg font-semibold">
+          07815 141 779
+        </a>
+        <p class="text-sm text-gray-600 mt-1">Mon-Fri, 9am-5:30pm</p>
+      </div>
+      
+      <div class="p-6 bg-white rounded-2xl border border-feel-at-home shadow-sm">
+        <div class="w-12 h-12 bg-pleased-as-punch/20 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-6 h-6 text-pleased-as-punch" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 0 002 2z"></path>
+          </svg>
+        </div>
+        <h4 class="font-zilla-slab text-lg text-memories mb-2">Email Me</h4>
+        <a href="mailto:hello@mikelisterphotography.co.uk" class="text-cool-as-a-cucumber hover:text-memories text-lg font-semibold">
+          hello@mikelisterphotography.co.uk
+        </a>
+        <p class="text-sm text-gray-600 mt-1">Response within 2 hours</p>
+      </div>
+    </div>
+  </div>
+</section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-memories border-t border-off-the-cuff pt-12 pb-8 text-white" itemscope itemtype="https://schema.org/LocalBusiness">
+  <div class="container mx-auto px-4">
+    <!-- 3-Column Layout -->
+    <div class="grid md:grid-cols-3 gap-10 mb-10">
+      
+      <!-- Column 1: Brand & Commitment -->
+      <div class="space-y-4" itemprop="name" content="Mike Lister Photography">
+        <!-- Logo -->
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="w-24 h-24">
+    <img src="/assets/images/brand/3-MLP-marque-side-2.png"
+      alt="Mike Lister Photography logo"
+      class="w-full h-full object-contain"
+    >
+  </picture>
+</div>
+          <div>
+            <h3 class="font-zilla-slab text-2xl text-white">Mike Lister Photography</h3>
+            <p class="text-cool-as-a-cucumber text-sm">Plymouth, Devon & Cornwall</p>
+          </div>
+        </div>
+        
+        <!-- Description -->
+        <p class="font-libre-franklin text-white-700">
+          Capturing the stories that matter most. Based in Plymouth and serving across Devon and Cornwall.
+        </p>
+        
+        <!-- Commitment Statement -->
+        <div class="pt-4 border-t border-feel-at-home">
+          <p class="font-libre-franklin text-white-700 text-sm">
+            We are committed to providing Plymouth with professional, excellent photography services across the city and the South West.
+          </p>
+          
+          <!-- Buy with Confidence Badge -->
+          <div class="mt-4">
+            <a href="https://www.buywithconfidence.gov.uk/" target="_blank" rel="noopener" class="inline-block">
+              <img src="/assets/images/brand/Buy-With-Confidence.png" 
+                   alt="Buy with Confidence - Trading Standards Approved" 
+                   class="h-14 w-auto max-w-full"
+                   loading="lazy">
+            </a>
+            <p class="text-xs text-white-600 font-libre-franklin mt-2">
+              Plymouth's only registered photography business with Trading Standards
+            </p>
+          </div>
+        </div>
+        <p class="text-xs text-white-600 font-libre-franklin mt-2">
+        <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms & Conditions</a> | <a href="/cookie-policy">Cookies Policy</a>
+        </p>
+      </div>
+
+      <!-- Column 2: Quick Links -->
+      <div class="space-y-6">
+        <div>
+          <h4 class="font-zilla-slab text-lg mb-4 text-white">Quick Links</h4>
+          <ul class="font-libre-franklin space-y-2">
+            
+              <li>
+                <a href="/" 
+                   class="text-white-700 hover:text-cool-as-a-cucumber transition-colors duration-300 inline-flex items-center">
+                  <svg class="w-3 h-3 mr-2 text-cool-as-a-cucumber" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                  Home
+                </a>
+              </li>
+            
+              <li>
+                <a href="/wedding-photography" 
+                   class="text-white-700 hover:text-cool-as-a-cucumber transition-colors duration-300 inline-flex items-center">
+                  <svg class="w-3 h-3 mr-2 text-cool-as-a-cucumber" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                  Weddings
+                </a>
+              </li>
+            
+              <li>
+                <a href="/commercial-photography" 
+                   class="text-white-700 hover:text-cool-as-a-cucumber transition-colors duration-300 inline-flex items-center">
+                  <svg class="w-3 h-3 mr-2 text-cool-as-a-cucumber" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                  Commercial
+                </a>
+              </li>
+            
+              <li>
+                <a href="/drone-photography" 
+                   class="text-white-700 hover:text-cool-as-a-cucumber transition-colors duration-300 inline-flex items-center">
+                  <svg class="w-3 h-3 mr-2 text-cool-as-a-cucumber" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                  Drone
+                </a>
+              </li>
+            
+              <li>
+                <a href="/about" 
+                   class="text-white-700 hover:text-cool-as-a-cucumber transition-colors duration-300 inline-flex items-center">
+                  <svg class="w-3 h-3 mr-2 text-cool-as-a-cucumber" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                  About
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+        
+        <!-- Social Media -->
+        <div>
+          <h4 class="font-zilla-slab text-lg mb-4 text-white">Follow Along</h4>
+          <div class="flex gap-4">
+            <!-- Instagram -->
+            <a href="https://instagram.com/mikelisterphotography" 
+               aria-label="Instagram" 
+               rel="noopener" 
+               target="_blank"
+               class="text-cool-as-a-cucumber hover:text-white transition-colors transform hover:-translate-y-1 duration-300">
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.900 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"/>
+              </svg>
+            </a>
+            
+            <!-- Facebook -->
+            <a href="https://facebook.com/mikelisterphotography" 
+               aria-label="Facebook" 
+               rel="noopener" 
+               target="_blank"
+               class="text-cool-as-a-cucumber hover:text-white transition-colors transform hover:-translate-y-1 duration-300">
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"/>
+              </svg>
+            </a>
+            
+            <!-- Pinterest -->
+            <a href="https://pinterest.com/mikelisterphotography" 
+               aria-label="Pinterest" 
+               rel="noopener" 
+               target="_blank"
+               class="text-cool-as-a-cucumber hover:text-white transition-colors transform hover:-translate-y-1 duration-300">
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill-rule="evenodd" d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.6 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z" clip-rule="evenodd"/>
+              </svg>
+            </a>
+            
+            <!-- YouTube -->
+            <a href="https://www.youtube.com/channel/UCgHqhXoc7I0_mvfX8nsdtGQ" 
+               aria-label="YouTube" 
+               rel="noopener" 
+               target="_blank"
+               class="text-cool-as-a-cucumber hover:text-white transition-colors transform hover:-translate-y-1 duration-300">
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Column 3: Contact Info -->
+      <div class="space-y-8">
+        <!-- Get in Touch -->
+        <div id="contact">
+          <h4 class="font-zilla-slab text-lg mb-4 text-white">Get in Touch</h4>
+          <div class="space-y-4">
+            <div class="flex items-start space-x-3">
+              <svg class="w-5 h-5 text-cool-as-a-cucumber mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 0 002 2z"></path>
+              </svg>
+              <div>
+                <p class="font-libre-franklin text-white-700 font-semibold">Email</p>
+                <a href="mailto:hello@mikelisterphotography.co.uk" 
+                   class="text-cool-as-a-cucumber hover:text-white font-libre-franklin" 
+                   itemprop="email">
+                  hello@mikelisterphotography.co.uk
+                </a>
+              </div>
+            </div>
+            
+            <div class="flex items-start space-x-3">
+              <svg class="w-5 h-5 text-cool-as-a-cucumber mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+              </svg>
+              <div>
+                <p class="font-libre-franklin text-white-700 font-semibold">Phone</p>
+                <a href="tel:07815141779" 
+                   class="text-cool-as-a-cucumber hover:text-white font-libre-franklin" 
+                   itemprop="telephone">
+                  07815 141 779
+                </a>
+              </div>
+            </div>
+            <!-- Add to footer near contact info -->
+<div itemscope itemtype="https://schema.org/Photographer" style="display:none;">
+  <span itemprop="name">Mike Lister Photography</span>
+  <span itemprop="description">Professional photography services in Plymouth, Devon and Cornwall</span>
+  <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+    <span itemprop="streetAddress">9 Winsbury Court, Crownhill</span>
+    <span itemprop="addressLocality">Plymouth</span>
+    <span itemprop="addressRegion">Devon</span>
+    <span itemprop="postalCode">PL6 5JU</span>
+  </span>
+  <span itemprop="telephone">07815141779</span>
+  <span itemprop="email">hello@mikelisterphotography.co.uk</span>
+  <span itemprop="areaServed">Plymouth, Devon, Cornwall</span>
+  <span itemprop="knowsAbout">Wedding Photography, Commercial Photography, Drone Photography</span>
+</div>
+
+            <div class="flex items-start space-x-3">
+              <svg class="w-5 h-5 text-cool-as-a-cucumber mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+              <div>
+                <p class="font-libre-franklin text-white-700 font-semibold">Location</p>
+                <p class="font-libre-franklin text-white-700" itemprop="address">
+                  9 Winsbury Court, Crownhill<br>
+                  Plymouth, Devon PL6 5JU
+                </p>
+                <a href="https://www.google.co.uk/maps/place/Mike+Lister+Photography/@50.4045305,-4.1286411,490m/data=!3m1!1e3!4m16!1m9!3m8!1s0x486ced2420595d51:0x11bd216f8f04fc0f!2sMike+Lister+Photography!8m2!3d50.4045305!4d-4.1260662!9m1!1b1!16s%2Fg%2F11b6c5p2hk!3m5!1s0x486ced2420595d51:0x11bd216f8f04fc0f!8m2!3d50.4045305!4d-4.1260662!16s%2Fg%2F11b6c5p2hk?entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoKLDEwMDc5MjA2N0gBUAM%3D" 
+                   target="_blank" 
+                   rel="noopener" 
+                   class="text-cool-as-a-cucumber hover:text-white text-sm underline mt-1 inline-block">
+                  View on Map
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment & Trust (below Get in Touch) -->
+        <div class="pt-6 border-t border-feel-at-home">
+          <h4 class="font-zilla-slab text-lg mb-4 text-white">Payment & Trust</h4>
+          
+          <!-- Payment Methods -->
+          <div class="mb-6">
+            <p class="font-libre-franklin text-white-700 text-sm mb-3">Accepted Payment Methods:</p>
+            <div class="flex flex-wrap gap-3 items-center" aria-label="Accepted payment methods">
+              <!-- Visa -->
+              <span class="sr-only">Visa</span>
+              <img src="/assets/images/brand/visa.svg" 
+                   alt="Visa" 
+                   class="h-10 w-auto" 
+                   loading="lazy">
+              
+              <!-- Stripe -->
+              <span class="sr-only">Stripe</span>
+              <img src="/assets/images/brand/stripe.svg" 
+                   alt="Stripe" 
+                   class="h-10 w-auto" 
+                   loading="lazy">
+              
+              <!-- Bank Transfer -->
+              <span class="sr-only">Bank Transfer</span>
+              <div class="h-7 px-3 bg-cool-as-a-cucumber text-white text-xs flex items-center justify-center rounded font-semibold">
+                BACS
+              </div>
+            </div>
+          </div>
+          
+          <!-- Insurance Info -->
+            <div class="bg-off-the-cuff/20 p-4 rounded-lg border border-cool-as-a-cucumber/30">
+            <p class="font-libre-franklin text-white text-sm">
+                <span class="font-semibold text-cool-as-a-cucumber">✓ Fully Insured & DBS Checked</span><br>
+                Professional indemnity and public liability insurance. Over 11 years of experience.
+            </p>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="border-t border-cool-as-a-cucumber pt-6 mt-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <!-- Copyright -->
+        <div class="mb-4 md:mb-0 text-center md:text-left">
+          <p class="text-white-600 font-libre-franklin text-sm">
+            &copy; 2026 Mike Lister Photography. All rights reserved.
+          </p>
+          <p class="text-white-500 font-libre-franklin text-xs mt-1">
+            Beautifully capturing your story across Plymouth, Devon and Cornwall.
+          </p>
+        </div>
+        
+        <!-- Back to Top -->
+        <div>
+          <a href="#top" 
+             class="inline-flex items-center gap-2 text-cool-as-a-cucumber hover:text-white text-sm font-libre-franklin transition-colors group">
+            <svg class="w-4 h-4 transform group-hover:-translate-y-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+            </svg>
+            Back to top
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEO-friendly hidden text for local ranking -->
+  <div class="sr-only">
+    <p itemprop="description">Mike Lister Photography: Professional wedding, drone, and commercial photography in Plymouth, Devon & Cornwall. 
+    Specialising in natural, candid wedding photography across Cornwall and Devon. Aerial photography and videography 
+    for properties and events. Commercial photography services for businesses. Based at 9 Winsbury Court, Crownhill, 
+    Plymouth PL6 5JU. Contact: 07815 141 779 or hello@mikelisterphotography.co.uk</p>
+  </div>
+</footer>
+    
+    <!-- Scripts -->
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
