@@ -237,6 +237,299 @@
     </nav>
 </header>
     
+<div id="cookie-consent-banner" class="fixed bottom-0 left-0 right-0 bg-memories/95 text-white p-4 z-50 hidden backdrop-blur-sm border-t border-white/10">
+  <div class="container mx-auto max-w-6xl">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="md:flex-1">
+        <h3 class="font-zilla-slab text-lg md:text-xl mb-2 text-off-the-cuff">
+          🍪 Cookie Preferences
+        </h3>
+        <p class="text-sm md:text-base font-libre-franklin">
+          We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. 
+          By continuing to use our site, you consent to our use of cookies.
+          <div class="mt-2">
+            <a href="/privacy" class="text-cool-as-a-cucumber underline hover:no-underline hover:text-off-the-cuff transition-colors mr-3 font-libre-franklin">
+              Privacy Policy
+            </a>
+            <a href="/cookie-policy" class="text-cool-as-a-cucumber underline hover:no-underline hover:text-off-the-cuff transition-colors font-libre-franklin">
+              Cookie Policy
+            </a>
+          </div>
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <button onclick="acceptAllCookies()" 
+                class="px-5 py-3 bg-cool-as-a-cucumber text-white rounded-full font-zilla-slab font-semibold text-sm hover:bg-memories hover:shadow-lg transition-all duration-300 whitespace-nowrap transform hover:-translate-y-0.5">
+          Accept All
+        </button>
+        <button onclick="acceptNecessaryCookies()" 
+                class="px-5 py-3 bg-white/20 text-white rounded-full font-zilla-slab text-sm hover:bg-white/30 hover:shadow-lg transition-all duration-300 whitespace-nowrap border border-white/30">
+          Necessary Only
+        </button>
+        <button onclick="openCookieSettings()" 
+                class="px-5 py-3 text-sm text-off-the-cuff hover:text-white transition-colors duration-300 whitespace-nowrap font-libre-franklin">
+          Customize
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Optional: Cookie Settings Modal -->
+<div id="cookie-settings-modal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+  <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+    <div class="p-6">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="font-zilla-slab text-2xl text-memories">Cookie Settings</h3>
+        <button onclick="closeCookieSettings()" class="text-gray-500 hover:text-memories text-2xl">&times;</button>
+      </div>
+      
+      <div class="space-y-6">
+        <div class="border-b border-feel-at-home pb-4">
+          <div class="flex items-center justify-between mb-2">
+            <label class="font-zilla-slab text-lg text-memories">Essential Cookies</label>
+            <span class="text-xs bg-off-the-cuff text-memories px-2 py-1 rounded-full">Always Active</span>
+          </div>
+          <p class="text-sm text-gray-600 font-libre-franklin">
+            Required for the website to function properly. Cannot be disabled.
+          </p>
+        </div>
+        
+        <div class="border-b border-feel-at-home pb-4">
+          <div class="flex items-center justify-between mb-2">
+            <label class="font-zilla-slab text-lg text-memories">Analytics Cookies</label>
+            <div class="relative inline-block w-12 h-6">
+              <input type="checkbox" id="analytics-toggle" class="sr-only" checked />
+              <label for="analytics-toggle" class="block bg-gray-300 w-12 h-6 rounded-full cursor-pointer transition-colors duration-300"></label>
+              <span class="dot absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform duration-300"></span>
+            </div>
+          </div>
+          <p class="text-sm text-gray-600 font-libre-franklin">
+            Help us understand how visitors interact with our website to improve user experience.
+          </p>
+        </div>
+        
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <label class="font-zilla-slab text-lg text-memories">Marketing Cookies</label>
+            <div class="relative inline-block w-12 h-6">
+              <input type="checkbox" id="marketing-toggle" class="sr-only" checked />
+              <label for="marketing-toggle" class="block bg-gray-300 w-12 h-6 rounded-full cursor-pointer transition-colors duration-300"></label>
+              <span class="dot absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform duration-300"></span>
+            </div>
+          </div>
+          <p class="text-sm text-gray-600 font-libre-franklin">
+            Used to track visitors across websites to display relevant advertisements.
+          </p>
+        </div>
+      </div>
+      
+      <div class="mt-8 flex gap-3">
+        <button onclick="saveCookieSettings()" 
+                class="flex-1 bg-cool-as-a-cucumber text-white px-6 py-3 rounded-full font-zilla-slab hover:bg-memories transition-colors duration-300">
+          Save Preferences
+        </button>
+        <button onclick="closeCookieSettings()" 
+                class="flex-1 border-2 border-cool-as-a-cucumber text-cool-as-a-cucumber px-6 py-3 rounded-full font-zilla-slab hover:bg-cool-as-a-cucumber hover:text-white transition-colors duration-300">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Cookie consent functions
+function acceptAllCookies() {
+  localStorage.setItem('cookie_consent', 'accepted');
+  localStorage.setItem('cookie_consent_date', new Date().toISOString());
+  localStorage.setItem('cookie_preferences', JSON.stringify({
+    analytics: true,
+    marketing: true
+  }));
+  
+  // Update GA4 consent
+  if (typeof gtag !== 'undefined') {
+    gtag('consent', 'update', {
+      'analytics_storage': 'granted',
+      'ad_storage': 'granted'
+    });
+  }
+  
+  document.getElementById('cookie-consent-banner').classList.add('hidden');
+  showToast('Cookie preferences saved. Thank you!');
+}
+
+function acceptNecessaryCookies() {
+  localStorage.setItem('cookie_consent', 'rejected');
+  localStorage.setItem('cookie_consent_date', new Date().toISOString());
+  localStorage.setItem('cookie_preferences', JSON.stringify({
+    analytics: false,
+    marketing: false
+  }));
+  
+  // Update GA4 consent
+  if (typeof gtag !== 'undefined') {
+    gtag('consent', 'update', {
+      'analytics_storage': 'denied',
+      'ad_storage': 'denied'
+    });
+  }
+  
+  document.getElementById('cookie-consent-banner').classList.add('hidden');
+  showToast('Only necessary cookies enabled.');
+}
+
+function openCookieSettings() {
+  document.getElementById('cookie-settings-modal').classList.remove('hidden');
+  
+  // Load existing preferences
+  const preferences = JSON.parse(localStorage.getItem('cookie_preferences') || '{"analytics":true,"marketing":true}');
+  document.getElementById('analytics-toggle').checked = preferences.analytics;
+  document.getElementById('marketing-toggle').checked = preferences.marketing;
+}
+
+function closeCookieSettings() {
+  document.getElementById('cookie-settings-modal').classList.add('hidden');
+}
+
+function saveCookieSettings() {
+  const analytics = document.getElementById('analytics-toggle').checked;
+  const marketing = document.getElementById('marketing-toggle').checked;
+  
+  localStorage.setItem('cookie_consent', 'custom');
+  localStorage.setItem('cookie_consent_date', new Date().toISOString());
+  localStorage.setItem('cookie_preferences', JSON.stringify({
+    analytics: analytics,
+    marketing: marketing
+  }));
+  
+  // Update GA4 consent
+  if (typeof gtag !== 'undefined') {
+    gtag('consent', 'update', {
+      'analytics_storage': analytics ? 'granted' : 'denied',
+      'ad_storage': marketing ? 'granted' : 'denied'
+    });
+  }
+  
+  document.getElementById('cookie-consent-banner').classList.add('hidden');
+  document.getElementById('cookie-settings-modal').classList.add('hidden');
+  showToast('Cookie preferences saved successfully!');
+}
+
+function showToast(message) {
+  const toast = document.createElement('div');
+  toast.className = 'fixed bottom-4 right-4 bg-cool-as-a-cucumber text-white px-6 py-3 rounded-full shadow-lg z-50 animate-fade-in font-libre-franklin flex items-center';
+  
+  // Add checkmark
+  const checkmark = document.createElement('div');
+  checkmark.className = 'mr-3';
+  checkmark.innerHTML = `
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+    </svg>
+  `;
+  
+  toast.appendChild(checkmark);
+  toast.appendChild(document.createTextNode(message));
+  document.body.appendChild(toast);
+  
+  setTimeout(() => {
+    toast.classList.add('animate-fade-out');
+    setTimeout(() => {
+      if (toast.parentNode === document.body) {
+        toast.remove();
+      }
+    }, 300);
+  }, 3000);
+}
+
+// Check cookie consent on page load
+document.addEventListener('DOMContentLoaded', function() {
+  const consent = localStorage.getItem('cookie_consent');
+  const consentDate = localStorage.getItem('cookie_consent_date');
+  
+  // Show banner if no consent or consent is older than 6 months
+  if (!consent || !consentDate) {
+    document.getElementById('cookie-consent-banner').classList.remove('hidden');
+  } else {
+    const sixMonthsAgo = new Date();
+    sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+    const lastConsent = new Date(consentDate);
+    
+    if (lastConsent < sixMonthsAgo) {
+      document.getElementById('cookie-consent-banner').classList.remove('hidden');
+    }
+  }
+  
+  // Toggle switch functionality
+  const toggles = document.querySelectorAll('input[type="checkbox"]');
+  toggles.forEach(toggle => {
+    toggle.addEventListener('change', function() {
+      const label = this.nextElementSibling;
+      const dot = label.nextElementSibling;
+      if (this.checked) {
+        label.classList.add('bg-cool-as-a-cucumber');
+        label.classList.remove('bg-gray-300');
+        dot.style.transform = 'translateX(24px)';
+      } else {
+        label.classList.remove('bg-cool-as-a-cucumber');
+        label.classList.add('bg-gray-300');
+        dot.style.transform = 'translateX(0)';
+      }
+    });
+  });
+});
+</script>
+
+<style>
+/* Custom animations */
+.animate-fade-in {
+  animation: fadeInSlideUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.animate-fade-out {
+  animation: fadeOutSlideDown 0.3s ease-in-out forwards;
+}
+
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutSlideDown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+/* Toggle switch styles */
+input[type="checkbox"]:checked + label {
+  background-color: #6AA6AF !important; /* cool-as-a-cucumber */
+}
+
+input[type="checkbox"]:checked + label + .dot {
+  transform: translateX(24px);
+}
+
+/* Custom modal backdrop */
+#cookie-settings-modal {
+  backdrop-filter: blur(4px);
+}
+</style>
+
+    
     <!-- Main Content -->
     <main class="flex-grow">
         <div class="min-h-[60vh] flex items-center justify-center py-16 px-4">
@@ -278,6 +571,7 @@
     </div>
 </div>
 
+        
         <!-- Contact Form Section - Mike Lister Photography -->
 <section id="contact" class="py-20 px-4 bg-off-white">
   <div class="container mx-auto max-w-4xl">
@@ -495,6 +789,7 @@
     </div>
   </div>
 </section>
+        
     </main>
     
     <!-- Footer -->
