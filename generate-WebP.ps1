@@ -6,6 +6,9 @@ $ProjectRoot = "C:\Repos\Mike Lister Photography"
 $JpegSource = "$ProjectRoot\assets\images"
 $WebpOutput = "$ProjectRoot\assets\images\webp"
 $Quality = 85  # Quality setting (1-100, 80-90 is usually good)
+$MaxSizePx = 2000          # Max long edge
+$JpegQuality = 82       # JPEG web quality sweet spot
+$MaxSizeKB   = 1024     # 1MB
 
 Write-Host "=========================================" -ForegroundColor Cyan
 Write-Host "  Mike Lister Photography WebP Generator" -ForegroundColor Cyan
@@ -78,56 +81,85 @@ $skippedCount = 0
 $errors = @()
 
 foreach ($jpeg in $jpegFiles) {
-    # Calculate relative path from source directory
+
     $relativePath = $jpeg.FullName.Substring($JpegSource.Length + 1)
-    
-    # Change extension to .webp
+
+    Write-Host "`n🖼  Processing: $relativePath" -ForegroundColor Cyan
+
+    # --- STEP 1: Check image dimensions ---
+    $identify = magick identify -format "%w %h" $jpeg.FullName
+    $width, $height = $identify -split " " | ForEach-Object { [int]$_ }
+
+    $longEdge = [Math]::Max($width, $height)
+
+    # --- STEP 2: Resize and/or recompress JPEG if needed ---
+$jpegSizeKB = $jpeg.Length / 1KB
+
+$needsResize   = $longEdge -gt $MaxSizePx
+$needsCompress = $jpegSizeKB -gt $MaxSizeKB
+
+if ($needsResize -or $needsCompress) {
+
+    Write-Host "  ↳ Optimising JPEG:" -ForegroundColor Yellow
+
+    if ($needsResize) {
+        Write-Host "    • Resizing ($width x $height → max $MaxSizePx px)" -ForegroundColor Yellow
+    }
+
+    if ($needsCompress) {
+        Write-Host "    • Recompressing (Size: $([math]::Round($jpegSizeKB,1))KB → ≤ $MaxSizeKB KB)" -ForegroundColor Yellow
+    }
+
+    magick $jpeg.FullName `
+        -resize "$($MaxSizePx)x$($MaxSizePx)>" `
+        -strip `
+        -interlace Plane `
+        -quality $JpegQuality `
+        $jpeg.FullName
+}
+else {
+    Write-Host "  ↳ JPEG already optimised ($width x $height, $([math]::Round($jpegSizeKB,1))KB)" -ForegroundColor DarkGray
+}
+
+
+
+    # --- STEP 3: Generate WebP ---
     $webpName = [System.IO.Path]::ChangeExtension($relativePath, ".webp")
     $webpFullPath = Join-Path $WebpOutput $webpName
-    
-    # Create subdirectory if needed
     $webpDirectory = [System.IO.Path]::GetDirectoryName($webpFullPath)
+
     if (-not (Test-Path $webpDirectory)) {
         New-Item -ItemType Directory -Force -Path $webpDirectory | Out-Null
     }
-    
-    # Check if WebP already exists and is newer (skip if so)
+
+    # Skip WebP if up to date
     if (Test-Path $webpFullPath) {
-        $jpegModified = $jpeg.LastWriteTime
-        $webpModified = (Get-Item $webpFullPath).LastWriteTime
-        
-        if ($jpegModified -le $webpModified) {
-            Write-Host "  [SKIP] $relativePath" -ForegroundColor DarkGray
+        if ($jpeg.LastWriteTime -le (Get-Item $webpFullPath).LastWriteTime) {
+            Write-Host "  ↳ WebP up to date — skipped" -ForegroundColor DarkGray
             $skippedCount++
             continue
         }
     }
-    
-    # Convert to WebP
-    Write-Host "  [CONVERT] $relativePath" -ForegroundColor White
-    
-    try {
-        # Using ImageMagick's magick command
-        magick $jpeg.FullName -quality $Quality $webpFullPath
-        
-        if (Test-Path $webpFullPath) {
-            $convertedCount++
-            
-            # Get file size comparison
-            $jpegSize = (Get-Item $jpeg.FullName).Length / 1KB
-            $webpSize = (Get-Item $webpFullPath).Length / 1KB
-            $savings = (($jpegSize - $webpSize) / $jpegSize) * 100
-            
-            Write-Host "    → Size: $([math]::Round($jpegSize,1))KB → $([math]::Round($webpSize,1))KB (Save: $([math]::Round($savings,1))%)" -ForegroundColor Green
-        } else {
-            $errors += "Failed: $relativePath"
-            Write-Host "    ✗ Conversion failed" -ForegroundColor Red
-        }
-    } catch {
-        $errors += "Error: $relativePath - $_"
-        Write-Host "    ✗ Error: $_" -ForegroundColor Red
+
+    Write-Host "  ↳ Generating WebP" -ForegroundColor White
+
+    magick $jpeg.FullName -quality $Quality $webpFullPath
+
+    if (Test-Path $webpFullPath) {
+        $convertedCount++
+
+        $jpegSize = (Get-Item $jpeg.FullName).Length / 1KB
+        $webpSize = (Get-Item $webpFullPath).Length / 1KB
+        $savings = (($jpegSize - $webpSize) / $jpegSize) * 100
+
+        Write-Host "    → JPEG: $([math]::Round($jpegSize,1))KB | WebP: $([math]::Round($webpSize,1))KB (Save: $([math]::Round($savings,1))%)" -ForegroundColor Green
+    }
+    else {
+        $errors += "Failed: $relativePath"
+        Write-Host "    ✗ WebP conversion failed" -ForegroundColor Red
     }
 }
+
 
 # 6. Summary
 Write-Host "`n" + ("="*50) -ForegroundColor Cyan
