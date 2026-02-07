@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en-GB" data-page-type="info">
 
 <head>
     <meta charset="UTF-8">
@@ -533,7 +533,7 @@ input[type="checkbox"]:checked + label + .dot {
     <!-- Main Content -->
     <main class="flex-grow">
         <!-- Hero Section -->
-<section class="relative min-h-[90vh] flex items-center overflow-hidden">
+<section id="hero" class="relative min-h-[90vh] flex items-center overflow-hidden">
   <div class="absolute inset-0">
     <div class="absolute inset-0 bg-memories/60 z-10"></div>
     <picture>
@@ -562,7 +562,7 @@ input[type="checkbox"]:checked + label + .dot {
 </section>
 
 <!-- Introduction & Philosophy -->
-<section class="py-20 px-4 bg-feel-at-home">
+<section id="introduction" class="py-20 px-4 bg-feel-at-home">
   <div class="container mx-auto max-w-6xl">
     <div class="grid md:grid-cols-2 gap-12 items-center">
       <div>
@@ -595,7 +595,7 @@ input[type="checkbox"]:checked + label + .dot {
 </section>
 
 <!-- Wedding Approach -->
-<section class="py-20 px-4 bg-white">
+<section id="weddings" class="py-20 px-4 bg-white">
   <div class="container mx-auto max-w-6xl">
     <div class="text-center mb-16">
       <h2 class="font-zilla-slab text-4xl md:text-5xl text-memories mb-6">
@@ -652,7 +652,7 @@ input[type="checkbox"]:checked + label + .dot {
 </section>
 
 <!-- Commercial Focus -->
-<section class="py-20 px-4 bg-off-white">
+<section id="commercial" class="py-20 px-4 bg-off-white">
   <div class="container mx-auto max-w-6xl">
     <div class="text-center mb-16">
       <h2 class="font-zilla-slab text-4xl md:text-5xl text-memories mb-6">
@@ -757,7 +757,7 @@ input[type="checkbox"]:checked + label + .dot {
 </section>
 
 <!-- Final CTA -->
-<section class="py-20 px-4 bg-gradient-to-br from-commercial-1 to-memories text-white">
+<section id="cta" class="py-20 px-4 bg-gradient-to-br from-commercial-1 to-memories text-white">
   <div class="container mx-auto max-w-4xl text-center">
     <h2 class="font-zilla-slab text-4xl md:text-5xl mb-8">
       Let's Create Something
@@ -1613,7 +1613,7 @@ d365mktformcapture.waitForElement("#mlp-contact-form")
     </main>
     
     <!-- Footer -->
-    <footer class="bg-memories border-t border-off-the-cuff pt-12 pb-8 text-white" itemscope itemtype="https://schema.org/LocalBusiness">
+    <footer id="footer" class="bg-memories border-t border-off-the-cuff pt-12 pb-8 text-white" itemscope itemtype="https://schema.org/LocalBusiness">
   <div class="container mx-auto px-4">
     <!-- 3-Column Layout -->
     <div class="grid md:grid-cols-3 gap-10 mb-10">
@@ -1943,5 +1943,6 @@ d365mktformcapture.waitForElement("#mlp-contact-form")
             });
         });
     </script>
+    <script src="/assets/js/analytics.js" defer></script>
 </body>
 </html>

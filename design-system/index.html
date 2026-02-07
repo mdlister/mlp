@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en-GB" data-page-type="">
 
 <head>
     <meta charset="UTF-8">
@@ -1656,16 +1656,367 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
   </section>
 
-  <section id="analytics" class="ds-section">
+ <section id="analytics" class="py-20 bg-white">
+  <div class="container mx-auto px-4 max-w-4xl">
+    <div class="prose prose-lg mx-auto">
+      <h1 class="text-3xl md:text-4xl font-zilla-slab text-memories mb-8 text-center">
+        Analytics Section Tracking – Mike Lister Photography
+      </h1>
+      
+      <p class="text-gray-700 text-lg mb-8 text-center">
+        This document explains how analytics works on this site, why it's structured this way, 
+        and what needs to be added to pages for tracking to remain consistent over time.
+      </p>
+      
+      <div class="bg-off-white p-6 rounded-2xl border border-feel-at-home mb-10">
+        <p class="text-gray-700 font-semibold">
+          The goal is to keep analytics simple, durable, and meaningful, 
+          focusing on <span class="text-cool-as-a-cucumber">story progression</span> 
+          rather than raw numbers.
+        </p>
+      </div>
+      
+      <div class="space-y-12">
+        <!-- Section 1 -->
+        <div>
+          <h2 class="text-2xl font-zilla-slab text-memories mb-4">1. Core Principle</h2>
+          <p class="text-gray-700 mb-4">
+            Analytics on this site is <strong>section‑first, not page‑first</strong>.
+          </p>
+          <p class="text-gray-700 mb-4">
+            Instead of obsessing over individual pages, we track:
+          </p>
+          <ul class="list-disc pl-6 space-y-2 text-gray-700 mb-4">
+            <li>Which sections people actually reach</li>
+            <li>How far through the story they progress</li>
+            <li>Whether they reach contact and attempt to enquire</li>
+          </ul>
+          <div class="bg-feel-at-home/20 p-4 rounded-lg">
+            <p class="text-gray-700">
+              If a visitor moves through the sections in order, the page is doing its job.
+            </p>
+          </div>
+        </div>
+        
+        <!-- Section 2 -->
+        <div>
+          <h2 class="text-2xl font-zilla-slab text-memories mb-4">2. Section IDs (This Is the Foundation)</h2>
+          <p class="text-gray-700 mb-4">
+            Every meaningful part of a page must be wrapped in a <code>&lt;section&gt;</code> 
+            element with a standardised <code>id</code>.
+          </p>
+          
+          <div class="bg-gray-50 p-4 rounded-lg mb-4">
+            <pre class="text-sm overflow-x-auto"><code>&lt;section id="portfolio"&gt;
+  ...
+&lt;/section&gt;</code></pre>
+          </div>
+          
+          <h3 class="text-xl font-zilla-slab text-memories mb-3">Important rules</h3>
+          <ul class="list-disc pl-6 space-y-2 text-gray-700 mb-4">
+            <li>Section IDs can repeat across different pages — this is expected and correct</li>
+            <li>Analytics always records section ID together with page path and page type</li>
+            <li>IDs describe the role in the story, not the visual design</li>
+          </ul>
+          
+          <div class="bg-pleased-as-punch/10 p-4 rounded-lg">
+            <p class="text-gray-700">
+              So <code>#portfolio</code> on the wedding page and <code>#portfolio</code> 
+              on the commercial page are treated as:<br />
+              <em>"Portfolio section on this page"</em>
+            </p>
+            <p class="text-gray-700 mt-2">
+              This allows comparison without confusion.
+            </p>
+          </div>
+        </div>
+        
+        <!-- Section 3 -->
+        <div>
+          <h2 class="text-2xl font-zilla-slab text-memories mb-4">3. Canonical Section List</h2>
+          <p class="text-gray-700 mb-4">
+            Use these IDs wherever possible. Consistency matters more than perfection.
+          </p>
+          
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-off-white p-5 rounded-xl">
+              <h3 class="text-lg font-zilla-slab text-memories mb-3">Global (used across most pages)</h3>
+              <ul class="space-y-2 text-gray-700">
+                <li><code>hero</code></li>
+                <li><code>introduction</code></li>
+                <li><code>services</code></li>
+                <li><code>portfolio</code></li>
+                <li><code>pricing</code></li>
+                <li><code>trust-signals</code></li>
+                <li><code>testimonials</code></li>
+                <li><code>contact</code></li>
+                <li><code>footer</code></li>
+              </ul>
+            </div>
+            
+            <div class="bg-off-white p-5 rounded-xl">
+              <h3 class="text-lg font-zilla-slab text-memories mb-3">Optional / contextual</h3>
+              <ul class="space-y-2 text-gray-700">
+                <li><code>previous-clients</code></li>
+                <li><code>client-examples</code></li>
+                <li><code>business-values</code></li>
+                <li><code>business-narrative</code></li>
+                <li><code>portfolio-preview</code></li>
+                <li><code>cta</code></li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="mt-4 p-4 bg-feel-at-home/20 rounded-lg">
+            <p class="text-gray-700">
+              If a section exists but does not advance the story, it does not need tracking.
+            </p>
+          </div>
+        </div>
+        
+        <!-- Section 4 -->
+        <div>
+          <h2 class="text-2xl font-zilla-slab text-memories mb-4">4. Page Front Matter (Required)</h2>
+          <p class="text-gray-700 mb-4">
+            Each page must define its type in front matter so analytics can group behaviour correctly.
+          </p>
+          
+          <div class="bg-gray-50 p-4 rounded-lg mb-4">
+            <pre class="text-sm overflow-x-auto"><code>---
+page_type: wedding
+---</code></pre>
+          </div>
+          
+          <p class="text-gray-700 mb-4">Valid values:</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-cool-as-a-cucumber text-white px-3 py-1 rounded-full text-sm">wedding</span>
+            <span class="bg-cool-as-a-cucumber text-white px-3 py-1 rounded-full text-sm">commercial</span>
+            <span class="bg-cool-as-a-cucumber text-white px-3 py-1 rounded-full text-sm">blog</span>
+            <span class="bg-cool-as-a-cucumber text-white px-3 py-1 rounded-full text-sm">info</span>
+          </div>
+          
+          <div class="bg-off-white p-4 rounded-lg">
+            <p class="text-gray-700">
+              This allows analytics to answer questions like:<br />
+              <em>"Do wedding visitors behave differently to commercial visitors?"</em>
+            </p>
+          </div>
+        </div>
+        
+        <!-- Section 5 -->
+        <div>
+          <h2 class="text-2xl font-zilla-slab text-memories mb-4">5. What Gets Tracked Automatically</h2>
+          
+          <div class="space-y-6">
+            <div class="bg-off-white p-5 rounded-xl">
+              <h3 class="text-lg font-zilla-slab text-memories mb-3">A. Section Viewed (Primary Signal)</h3>
+              <p class="text-gray-700 mb-3">
+                An event is recorded once per session when a section enters view:
+              </p>
+              <ul class="list-disc pl-6 space-y-1 text-gray-700 mb-3">
+                <li><code>section_viewed</code></li>
+                <li>section ID</li>
+                <li>page path</li>
+                <li>page type</li>
+                <li>section order on the page</li>
+              </ul>
+              <p class="text-gray-700">
+                This is the main metric used to understand:
+              </p>
+              <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                <li>Drop‑off points</li>
+                <li>Story progression</li>
+                <li>Which sections are rarely seen</li>
+              </ul>
+            </div>
+            
+            <div class="bg-off-white p-5 rounded-xl">
+              <h3 class="text-lg font-zilla-slab text-memories mb-3">B. Portfolio Interaction</h3>
+              <p class="text-gray-700 mb-3">
+                Tracked only when someone actively engages:
+              </p>
+              <ul class="list-disc pl-6 space-y-1 text-gray-700 mb-3">
+                <li>Image click</li>
+                <li>Gallery open</li>
+              </ul>
+              <p class="text-gray-700">
+                This answers:<br />
+                <em>"Do people just scroll past the work, or actually engage with it?"</em>
+              </p>
+            </div>
+            
+            <div class="bg-off-white p-5 rounded-xl">
+              <h3 class="text-lg font-zilla-slab text-memories mb-3">C. CTA Clicks</h3>
+              <p class="text-gray-700 mb-3">
+                Tracked for links that intentionally move someone forward.
+              </p>
+              <ul class="list-disc pl-6 space-y-1 text-gray-700 mb-3">
+                <li>Hero CTAs</li>
+                <li>Mid‑page CTAs</li>
+                <li>Pre‑contact CTAs</li>
+              </ul>
+              <p class="text-gray-700">
+                Each records:
+              </p>
+              <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                <li>Where it was clicked</li>
+                <li>What it points to</li>
+              </ul>
+            </div>
+            
+            <div class="bg-off-white p-5 rounded-xl">
+              <h3 class="text-lg font-zilla-slab text-memories mb-3">D. Contact</h3>
+              <p class="text-gray-700">
+                Only the essentials:
+              </p>
+              <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                <li>Contact section viewed</li>
+                <li>Form started</li>
+                <li>Form submitted</li>
+              </ul>
+              <p class="text-gray-700 mt-3">
+                This keeps conversion tracking clean and reliable.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Section 6 -->
+        <div>
+          <h2 class="text-2xl font-zilla-slab text-memories mb-4">6. What Is Not Tracked (By Design)</h2>
+          <p class="text-gray-700 mb-4">
+            To keep analytics readable months or years from now, we intentionally avoid:
+          </p>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-4">
+            <span class="bg-gray-100 text-gray-700 px-3 py-2 rounded-lg text-center">Scroll percentages</span>
+            <span class="bg-gray-100 text-gray-700 px-3 py-2 rounded-lg text-center">Mouse movement</span>
+            <span class="bg-gray-100 text-gray-700 px-3 py-2 rounded-lg text-center">Field‑level form behaviour</span>
+            <span class="bg-gray-100 text-gray-700 px-3 py-2 rounded-lg text-center">Excessive timing metrics</span>
+            <span class="bg-gray-100 text-gray-700 px-3 py-2 rounded-lg text-center">Heatmaps</span>
+          </div>
+          <div class="bg-feel-at-home/20 p-4 rounded-lg">
+            <p class="text-gray-700">
+              If a metric doesn't help decide:<br />
+              • what to rewrite<br />
+              • what to reorder<br />
+              • what to remove<br />
+              …it isn't tracked.
+            </p>
+          </div>
+        </div>
+        
+        <!-- Section 7 -->
+        <div>
+          <h2 class="text-2xl font-zilla-slab text-memories mb-4">7. Why Repeating Section IDs Is OK</h2>
+          <p class="text-gray-700 mb-4">
+            Using the same section ID on multiple pages is a feature, not a problem.
+          </p>
+          <p class="text-gray-700 mb-4">
+            Analytics always evaluates:
+          </p>
+          <div class="bg-cool-as-a-cucumber/10 p-4 rounded-lg mb-4">
+            <p class="text-cool-as-a-cucumber font-semibold text-center">
+              Page + Section + Order
+            </p>
+          </div>
+          <p class="text-gray-700 mb-4">
+            This allows questions like:
+          </p>
+          <ul class="list-disc pl-6 space-y-2 text-gray-700 mb-4">
+            <li>Do people reach portfolio more often on wedding pages than commercial pages?</li>
+            <li>Does pricing perform better before or after testimonials?</li>
+          </ul>
+          <div class="bg-off-white p-4 rounded-lg">
+            <p class="text-gray-700">
+              Without duplicating logic or dashboards.
+            </p>
+          </div>
+        </div>
+        
+        <!-- Section 8 -->
+        <div>
+          <h2 class="text-2xl font-zilla-slab text-memories mb-4">8. Long‑Term Maintenance Checklist</h2>
+          <p class="text-gray-700 mb-6">
+            When adding or editing pages:
+          </p>
+          
+          <div class="grid md:grid-cols-2 gap-6 mb-8">
+            <div class="bg-white border border-feel-at-home p-5 rounded-xl">
+              <div class="flex items-center mb-3">
+                <div class="w-8 h-8 bg-cool-as-a-cucumber rounded-full flex items-center justify-center text-white mr-3">1</div>
+                <h3 class="text-lg font-zilla-slab text-memories">Section ID present</h3>
+              </div>
+              <p class="text-gray-700 text-sm">Every story section has a standardised <code>id</code></p>
+            </div>
+            
+            <div class="bg-white border border-feel-at-home p-5 rounded-xl">
+              <div class="flex items-center mb-3">
+                <div class="w-8 h-8 bg-cool-as-a-cucumber rounded-full flex items-center justify-center text-white mr-3">2</div>
+                <h3 class="text-lg font-zilla-slab text-memories">Page type set</h3>
+              </div>
+              <p class="text-gray-700 text-sm">Front matter includes <code>page_type</code></p>
+            </div>
+            
+            <div class="bg-white border border-feel-at-home p-5 rounded-xl">
+              <div class="flex items-center mb-3">
+                <div class="w-8 h-8 bg-cool-as-a-cucumber rounded-full flex items-center justify-center text-white mr-3">3</div>
+                <h3 class="text-lg font-zilla-slab text-memories">Story progression</h3>
+              </div>
+              <p class="text-gray-700 text-sm">Sections follow logical narrative flow</p>
+            </div>
+            
+            <div class="bg-white border border-feel-at-home p-5 rounded-xl">
+              <div class="flex items-center mb-3">
+                <div class="w-8 h-8 bg-cool-as-a-cucumber rounded-full flex items-center justify-center text-white mr-3">4</div>
+                <h3 class="text-lg font-zilla-slab text-memories">Analytics loaded</h3>
+              </div>
+              <p class="text-gray-700 text-sm"><code>analytics.html</code> include present</p>
+            </div>
+          </div>
+          
+          <div class="bg-pleased-as-punch/10 p-6 rounded-xl text-center">
+            <p class="text-gray-700 font-semibold text-lg">
+              If all four are true, analytics will continue to work without changes.
+            </p>
+          </div>
+        </div>
+        
+        <!-- Section 9 -->
+        <div>
+          <h2 class="text-2xl font-zilla-slab text-memories mb-4">9. The One Thing to Remember</h2>
+          <div class="bg-gradient-to-r from-cool-as-a-cucumber/20 to-memories/20 p-8 rounded-2xl text-center">
+            <p class="text-2xl font-zilla-slab text-memories mb-4">
+              We measure story progression, not vanity metrics.
+            </p>
+            <p class="text-gray-700 text-lg">
+              If analytics tells you how people move through the page and where they stop, 
+              it's doing its job.<br />
+              <span class="font-semibold">Everything else is noise.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Back link -->
+      <div class="mt-12 pt-8 border-t border-feel-at-home text-center">
+        <a href="/" class="inline-flex items-center text-cool-as-a-cucumber hover:text-memories font-zilla-slab">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+          </svg>
+          Back to Home
+        </a>
+      </div>
+    </div>
+
+
    <section id="structure" class="ds-section">
     <section id="guidelines" class="ds-section">
 
   <footer class="mt-12 pt-8 border-t border-cool-as-a-cucumber/30 text-center text-gray-600">
-    <p>Design System • Mike Lister Photography • Last updated: February 06, 2026</p>
+    <p>Design System • Mike Lister Photography • Last updated: February 07, 2026</p>
     <p class="text-sm mt-2">This is a living document. Update as the site evolves.</p>
   </footer>
-&lt;/div&gt;
-</section></section></section></div>
+</section></section></div></section></div>
 
         </div>
     </div>
@@ -2501,7 +2852,7 @@ d365mktformcapture.waitForElement("#mlp-contact-form")
     </main>
     
     <!-- Footer -->
-    <footer class="bg-memories border-t border-off-the-cuff pt-12 pb-8 text-white" itemscope itemtype="https://schema.org/LocalBusiness">
+    <footer id="footer" class="bg-memories border-t border-off-the-cuff pt-12 pb-8 text-white" itemscope itemtype="https://schema.org/LocalBusiness">
   <div class="container mx-auto px-4">
     <!-- 3-Column Layout -->
     <div class="grid md:grid-cols-3 gap-10 mb-10">
@@ -2831,5 +3182,6 @@ d365mktformcapture.waitForElement("#mlp-contact-form")
             });
         });
     </script>
+    <script src="/assets/js/analytics.js" defer></script>
 </body>
 </html>

@@ -46,3 +46,4 @@ write-host $category
 $yaml | Out-File $outputFile -Encoding UTF8
 
 Write-Host "Portfolio YAML generated successfully"
+Write-Host "You might want to update the category for weddings."
