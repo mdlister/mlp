@@ -113,6 +113,42 @@
 }
 </script>
 
+
+<script>
+  (function () {
+    var isLocalhost =
+      location.hostname === 'localhost' ||
+      location.hostname === '127.0.0.1' ||
+      location.hostname === '';
+
+    if (isLocalhost) return;
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    window.gtag = gtag;
+
+    // Do not track users until they give consent
+    gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied'
+    });
+
+    var gtagScript = document.createElement('script');
+    gtagScript.async = true;
+    gtagScript.src =
+      'https://www.googletagmanager.com/gtag/js?id=G-YQ2T3B7R62';
+    document.head.appendChild(gtagScript);
+
+    gtag('js', new Date());
+    gtag('config', 'G-YQ2T3B7R62', {
+      anonymize_ip: true,
+      send_page_view: false
+    });
+  })();
+</script>
+
+
+
 </head>
 
 <body class="font-libre-franklin bg-off-white text-memories min-h-screen flex flex-col">
@@ -2013,7 +2049,7 @@ page_type: wedding
     <section id="guidelines" class="ds-section">
 
   <footer class="mt-12 pt-8 border-t border-cool-as-a-cucumber/30 text-center text-gray-600">
-    <p>Design System • Mike Lister Photography • Last updated: February 07, 2026</p>
+    <p>Design System • Mike Lister Photography • Last updated: February 08, 2026</p>
     <p class="text-sm mt-2">This is a living document. Update as the site evolves.</p>
   </footer>
 </section></section></div></section></div>

@@ -113,6 +113,42 @@
 }
 </script>
 
+
+<script>
+  (function () {
+    var isLocalhost =
+      location.hostname === 'localhost' ||
+      location.hostname === '127.0.0.1' ||
+      location.hostname === '';
+
+    if (isLocalhost) return;
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    window.gtag = gtag;
+
+    // Do not track users until they give consent
+    gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied'
+    });
+
+    var gtagScript = document.createElement('script');
+    gtagScript.async = true;
+    gtagScript.src =
+      'https://www.googletagmanager.com/gtag/js?id=G-YQ2T3B7R62';
+    document.head.appendChild(gtagScript);
+
+    gtag('js', new Date());
+    gtag('config', 'G-YQ2T3B7R62', {
+      anonymize_ip: true,
+      send_page_view: false
+    });
+  })();
+</script>
+
+
+
 </head>
 
 <body class="font-libre-franklin bg-off-white text-memories min-h-screen flex flex-col">
@@ -545,7 +581,7 @@ input[type="checkbox"]:checked + label + .dot {
       </p>
       <div class="mt-6 inline-block bg-off-white px-4 py-2 rounded-full">
         <p class="text-sm text-gray-600">
-          Last Updated: February  7, 2026
+          Last Updated: February  8, 2026
         </p>
       </div>
     </div>
@@ -775,7 +811,7 @@ input[type="checkbox"]:checked + label + .dot {
   "@context": "https://schema.org",
   "@type": "PrivacyPolicy",
   "name": "Privacy Policy",
-  "datePublished": "2026-02-07",
+  "datePublished": "2026-02-08",
   "publisher": {
     "@type": "ProfessionalService",
     "name": "Mike Lister Photography",

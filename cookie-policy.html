@@ -113,6 +113,42 @@
 }
 </script>
 
+
+<script>
+  (function () {
+    var isLocalhost =
+      location.hostname === 'localhost' ||
+      location.hostname === '127.0.0.1' ||
+      location.hostname === '';
+
+    if (isLocalhost) return;
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    window.gtag = gtag;
+
+    // Do not track users until they give consent
+    gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied'
+    });
+
+    var gtagScript = document.createElement('script');
+    gtagScript.async = true;
+    gtagScript.src =
+      'https://www.googletagmanager.com/gtag/js?id=G-YQ2T3B7R62';
+    document.head.appendChild(gtagScript);
+
+    gtag('js', new Date());
+    gtag('config', 'G-YQ2T3B7R62', {
+      anonymize_ip: true,
+      send_page_view: false
+    });
+  })();
+</script>
+
+
+
 </head>
 
 <body class="font-libre-franklin bg-off-white text-memories min-h-screen flex flex-col">
@@ -547,7 +583,7 @@ input[type="checkbox"]:checked + label + .dot {
         </p>
         <div class="mt-8">
           <span class="inline-flex items-center px-4 py-2 bg-white/20 rounded-full text-sm">
-            🍪 Last Updated: February 07, 2026
+            🍪 Last Updated: February 08, 2026
           </span>
         </div>
       </div>
@@ -1016,7 +1052,7 @@ input[type="checkbox"]:checked + label + .dot {
           <div class="mt-16 p-6 bg-pleased-as-punch/20 rounded-xl text-center">
             <h3 class="font-serif text-lg text-cool-as-a-cucumber mb-2">Policy Updates</h3>
             <p class="text-sm text-gray-600">
-              This cookie policy was last updated on <strong>February 07, 2026</strong>. 
+              This cookie policy was last updated on <strong>February 08, 2026</strong>. 
               We may update it to reflect changes in technology, regulation, or our services. 
               Significant changes will be announced on our website.
             </p>
