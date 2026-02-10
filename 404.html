@@ -583,7 +583,13 @@ input[type="checkbox"]:checked + label + .dot {
     
     <!-- Main Content -->
     <main class="flex-grow">
-        <div class="min-h-[60vh] flex items-center justify-center py-16 px-4">
+        <script>
+  gtag('event', 'page_not_found', {
+    page_location: window.location.href,
+    page_referrer: document.referrer
+  });
+</script>
+<div class="min-h-[60vh] flex items-center justify-center py-16 px-4">
     <div class="max-w-2xl mx-auto text-center">
         <!-- Error Graphic -->
         <div class="text-6xl mb-6">🔍📸</div>
